@@ -1,4 +1,4 @@
-package com.example.fenixgarden;
+package com.campus.fenixgarden;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
