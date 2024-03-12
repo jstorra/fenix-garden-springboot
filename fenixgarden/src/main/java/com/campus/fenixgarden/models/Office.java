@@ -1,4 +1,4 @@
 package com.campus.fenixgarden.models;
 
-public class Producto {
+public class Office {
 }
