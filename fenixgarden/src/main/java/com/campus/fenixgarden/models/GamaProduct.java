@@ -1,4 +1,4 @@
 package com.campus.fenixgarden.models;
 
-public class GamaProducto {
+public class GamaProduct {
 }

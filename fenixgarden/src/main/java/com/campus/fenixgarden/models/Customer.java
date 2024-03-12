@@ -1,4 +1,5 @@
 package com.campus.fenixgarden.models;
 
-public class DetallePedido {
+public class Customer {
+
 }

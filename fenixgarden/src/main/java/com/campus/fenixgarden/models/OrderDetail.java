@@ -1,4 +1,4 @@
 package com.campus.fenixgarden.models;
 
-public class Cliente {
+public class OrderDetail {
 }
