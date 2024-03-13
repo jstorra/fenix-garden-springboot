@@ -13,7 +13,6 @@ public class OrderDetailId implements Serializable {
     @Column(name = "codigo_producto")
     private String productCode;
 
-
     public Long getOrderCode() {
         return orderCode;
     }
