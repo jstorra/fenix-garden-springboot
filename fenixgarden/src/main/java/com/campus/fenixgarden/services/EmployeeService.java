@@ -1,6 +1,7 @@
 package com.campus.fenixgarden.services;
 
 import com.campus.fenixgarden.models.Employee;
+import com.campus.fenixgarden.models.dtos.EmployeeDTO;
 import com.campus.fenixgarden.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,9 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+    public List<EmployeeDTO> getAllEmployees() {
+        return employeeRepository.findAll().stream()
+                .map(Employee::toDTO)
+                .toList();
     }
 }

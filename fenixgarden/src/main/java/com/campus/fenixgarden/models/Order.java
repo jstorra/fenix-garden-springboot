@@ -7,10 +7,9 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "pedido")
 public class Order {
-
     @Id
     @Column(name = "codigo_pedido")
-    private Long orderCode;
+    private int orderCode;
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_pedido", nullable = false)
     private LocalDate orderDate;
@@ -33,11 +32,11 @@ public class Order {
     @JoinColumn(name = "codigo_cliente", nullable = false)
     private Customer customer;
 
-    public Long getOrderCode() {
+    public int getOrderCode() {
         return orderCode;
     }
 
-    public void setOrderCode(Long orderCode) {
+    public void setOrderCode(int orderCode) {
         this.orderCode = orderCode;
     }
 

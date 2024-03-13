@@ -1,7 +1,9 @@
 package com.campus.fenixgarden;
 
+import com.campus.fenixgarden.models.Customer;
 import com.campus.fenixgarden.models.Order;
 import com.campus.fenixgarden.models.orderdetail.OrderDetail;
+import com.campus.fenixgarden.services.CustomerService;
 import com.campus.fenixgarden.services.OrderDetailService;
 import com.campus.fenixgarden.services.OrderService;
 import jakarta.xml.bind.SchemaOutputResolver;
@@ -20,15 +22,7 @@ public class FenixgardenApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(FenixgardenApplication.class, args);
 		OrderService orderService = context.getBean(OrderService.class);
 		OrderDetailService orderDetailService = context.getBean(OrderDetailService.class);
-
-//		List<Order> orders = new ArrayList<>();
-//		orders = orderService.getAllOrders();
-//		System.out.println(orders);
-
-		List<OrderDetail> orderDetails = new ArrayList<>();
-		orderDetails = orderDetailService.getAllOrderDetails();
-		System.out.println(orderDetails);
+		CustomerService customerService = context.getBean(CustomerService.class);
 
 	}
-
 }

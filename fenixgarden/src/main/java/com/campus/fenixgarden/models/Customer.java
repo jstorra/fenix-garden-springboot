@@ -1,5 +1,6 @@
 package com.campus.fenixgarden.models;
 
+import com.campus.fenixgarden.models.dtos.CustomerDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_cliente")
-    private Long customerCode;
+    private int customerCode;
 
     @Column(name = "nombre_cliente", nullable = false)
     private String customerName;
@@ -58,11 +59,11 @@ public class Customer {
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    public Long getCustomerCode() {
+    public int getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(Long customerCode) {
+    public void setCustomerCode(int customerCode) {
         this.customerCode = customerCode;
     }
 
@@ -184,6 +185,25 @@ public class Customer {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public CustomerDTO toDTO() {
+        CustomerDTO dto = new CustomerDTO();
+        dto.setCustomerCode(this.customerCode);
+        dto.setCustomerName(this.customerName);
+        dto.setContactName(this.contactName);
+        dto.setContactLastName(this.contactLastName);
+        dto.setPhone(this.phone);
+        dto.setFax(this.fax);
+        dto.setAddressLine1(this.addressLine1);
+        dto.setAddressLine2(this.addressLine2);
+        dto.setCity(this.city);
+        dto.setRegion(this.region);
+        dto.setCountry(this.country);
+        dto.setZipCode(this.zipCode);
+        dto.setCreditLimit(this.creditLimit);
+        dto.setRepSalesCode(this.repSales.getEmployeeCode());
+        return dto;
     }
 
     @Override

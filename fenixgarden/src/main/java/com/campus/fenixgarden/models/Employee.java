@@ -1,5 +1,6 @@
 package com.campus.fenixgarden.models;
 
+import com.campus.fenixgarden.models.dtos.EmployeeDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_empleado")
-    private Long employeeCode;
+    private int employeeCode;
 
     @Column(name = "nombre", nullable = false)
     private String name;
@@ -41,11 +42,11 @@ public class Employee {
     @OneToMany(mappedBy = "repSales", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Customer> customers;
 
-    public Long getEmployeeCode() {
+    public int getEmployeeCode() {
         return employeeCode;
     }
 
-    public void setEmployeeCode(Long employeeCode) {
+    public void setEmployeeCode(int employeeCode) {
         this.employeeCode = employeeCode;
     }
 
@@ -119,6 +120,24 @@ public class Employee {
 
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
+    }
+
+    public EmployeeDTO toDTO() {
+        EmployeeDTO dto = new EmployeeDTO();
+        dto.setEmployeeCode(this.employeeCode);
+        dto.setName(this.name);
+        dto.setLastName1(this.lastName1);
+        dto.setLastName2(this.lastName2);
+        dto.setExtension(this.extension);
+        dto.setEmail(this.email);
+        dto.setRol(this.rol);
+        if (this.office != null) {
+            dto.setOfficeCode(this.office.getOfficeCode());
+        }
+        if (this.boss != null) {
+            dto.setBossCode(this.boss.getEmployeeCode());
+        }
+        return dto;
     }
 
     @Override
