@@ -2,7 +2,6 @@ package com.campus.fenixgarden.models.orderdetail;
 
 import com.campus.fenixgarden.models.Order;
 import com.campus.fenixgarden.models.Product;
-import com.campus.fenixgarden.models.orderdetail.OrderDetailId;
 import jakarta.persistence.*;
 
 @Entity
