@@ -10,7 +10,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_empleado")
-    private Long employeeCode;
+    private Integer employeeCode;
 
     @Column(name = "nombre", nullable = false)
     private String name;
@@ -41,11 +41,11 @@ public class Employee {
     @OneToMany(mappedBy = "repSales", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Customer> customers;
 
-    public Long getEmployeeCode() {
+    public Integer getEmployeeCode() {
         return employeeCode;
     }
 
-    public void setEmployeeCode(Long employeeCode) {
+    public void setEmployeeCode(int employeeCode) {
         this.employeeCode = employeeCode;
     }
 

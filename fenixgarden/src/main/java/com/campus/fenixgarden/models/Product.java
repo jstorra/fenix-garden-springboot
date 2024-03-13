@@ -1,5 +1,7 @@
 package com.campus.fenixgarden.models;
 
+import com.campus.fenixgarden.models.dtos.ProductDTO;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -27,7 +29,7 @@ public class Product {
     private String description;
 
     @Column(name = "cantidad_en_stock", nullable = false)
-    private int amountInStock;
+    private Integer amountInStock;
 
     @Column(name = "precio_venta", nullable = false)
     private double salePrice;
@@ -83,11 +85,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getAmountInStock() {
+    public Integer getAmountInStock() {
         return amountInStock;
     }
 
-    public void setAmountInStock(int amountInStock) {
+    public void setAmountInStock(Integer amountInStock) {
         this.amountInStock = amountInStock;
     }
 
@@ -105,6 +107,21 @@ public class Product {
 
     public void setSupplierPrice(double supplierPrice) {
         this.supplierPrice = supplierPrice;
+    }
+
+    public ProductDTO toDTO(){
+        ProductDTO dto = new ProductDTO();
+        dto.setProductCode(this.productCode);
+        dto.setName(this.name);
+        dto.setGamaProduct(this.getGamaProduct().getGama());
+        dto.setDimensions(this.dimensions);
+        dto.setSupplier(this.supplier);
+        dto.setDescription(this.description);
+        dto.setAmountInStock(this.amountInStock);
+        dto.setSalePrice(this.salePrice);
+        dto.setSupplierPrice(this.supplierPrice);
+
+        return dto;
     }
 
     @Override

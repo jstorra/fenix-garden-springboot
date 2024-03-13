@@ -1,5 +1,6 @@
 package com.campus.fenixgarden.repositories;
 
+import com.campus.fenixgarden.models.dtos.OrderDetailDTO;
 import com.campus.fenixgarden.models.orderdetail.OrderDetail;
 import com.campus.fenixgarden.models.orderdetail.OrderDetailId;
 import org.springframework.data.jpa.repository.JpaRepository;

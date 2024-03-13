@@ -10,7 +10,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_cliente")
-    private Long customerCode;
+    private Integer customerCode;
 
     @Column(name = "nombre_cliente", nullable = false)
     private String customerName;
@@ -58,11 +58,11 @@ public class Customer {
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    public Long getCustomerCode() {
+    public Integer getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(Long customerCode) {
+    public void setCustomerCode(Integer customerCode) {
         this.customerCode = customerCode;
     }
 

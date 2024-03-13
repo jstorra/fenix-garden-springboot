@@ -8,16 +8,16 @@ import java.io.Serializable;
 @Embeddable
 public class OrderDetailId implements Serializable {
     @Column(name = "codigo_pedido")
-    private Long orderCode;
+    private Integer orderCode;
 
     @Column(name = "codigo_producto")
     private String productCode;
 
-    public Long getOrderCode() {
+    public Integer getOrderCode() {
         return orderCode;
     }
 
-    public void setOrderCode(Long orderCode) {
+    public void setOrderCode(int orderCode) {
         this.orderCode = orderCode;
     }
 
