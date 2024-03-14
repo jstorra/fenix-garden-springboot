@@ -1,5 +1,6 @@
 package com.campus.fenixgarden.models;
 
+import com.campus.fenixgarden.models.dtos.CustomerDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -184,6 +185,25 @@ public class Customer {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public CustomerDTO toDTO() {
+        CustomerDTO dto = new CustomerDTO();
+        dto.setCustomerCode(this.customerCode);
+        dto.setCustomerName(this.customerName);
+        dto.setContactName(this.contactName);
+        dto.setContactLastName(this.contactLastName);
+        dto.setPhone(this.phone);
+        dto.setFax(this.fax);
+        dto.setAddressLine1(this.addressLine1);
+        dto.setAddressLine2(this.addressLine2);
+        dto.setCity(this.city);
+        dto.setRegion(this.region);
+        dto.setCountry(this.country);
+        dto.setZipCode(this.zipCode);
+        dto.setCreditLimit(this.creditLimit);
+        dto.setRepSalesCode(this.repSales != null ? this.repSales.getEmployeeCode() : null);
+        return dto;
     }
 
     @Override

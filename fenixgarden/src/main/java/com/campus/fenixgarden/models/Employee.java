@@ -1,5 +1,6 @@
 package com.campus.fenixgarden.models;
 
+import com.campus.fenixgarden.models.dtos.EmployeeDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -45,7 +46,7 @@ public class Employee {
         return employeeCode;
     }
 
-    public void setEmployeeCode(int employeeCode) {
+    public void setEmployeeCode(Integer employeeCode) {
         this.employeeCode = employeeCode;
     }
 
@@ -119,6 +120,20 @@ public class Employee {
 
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
+    }
+
+    public EmployeeDTO toDTO() {
+        EmployeeDTO dto = new EmployeeDTO();
+        dto.setEmployeeCode(this.employeeCode);
+        dto.setName(this.name);
+        dto.setLastName1(this.lastName1);
+        dto.setLastName2(this.lastName2);
+        dto.setExtension(this.extension);
+        dto.setEmail(this.email);
+        dto.setRol(this.rol);
+        dto.setOfficeCode(this.office != null ? this.office.getOfficeCode() : null);
+        dto.setBossCode(this.boss != null ? this.boss.getEmployeeCode() : null);
+        return dto;
     }
 
     @Override

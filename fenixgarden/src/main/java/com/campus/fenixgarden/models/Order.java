@@ -8,7 +8,6 @@ import java.sql.Date;
 @Entity
 @Table(name = "pedido")
 public class Order {
-
     @Id
     @Column(name = "codigo_pedido")
     private Integer orderCode;

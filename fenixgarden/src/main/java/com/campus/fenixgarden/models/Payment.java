@@ -1,8 +1,9 @@
 package com.campus.fenixgarden.models;
 
+import com.campus.fenixgarden.models.dtos.PaymentDTO;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 @Entity
 @Table(name = "pago")
@@ -16,7 +17,7 @@ public class Payment {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_pago", nullable = false)
-    private LocalDate paymentDate;
+    private Date paymentDate;
 
     @Column(name = "total", nullable = false)
     private double total;
@@ -41,11 +42,11 @@ public class Payment {
         this.wayToPay = wayToPay;
     }
 
-    public LocalDate getPaymentDate() {
+    public Date getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(LocalDate paymentDate) {
+    public void setPaymentDate(Date paymentDate) {
         this.paymentDate = paymentDate;
     }
 
@@ -63,6 +64,16 @@ public class Payment {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public PaymentDTO toDTO() {
+        PaymentDTO dto = new PaymentDTO();
+        dto.setTransactionId(this.transactionId);
+        dto.setWayToPay(this.wayToPay);
+        dto.setPaymentDate(this.paymentDate);
+        dto.setTotal(this.total);
+        dto.setCustomerCode(this.customer != null ? this.customer.getCustomerCode() : null);
+        return dto;
     }
 
     @Override

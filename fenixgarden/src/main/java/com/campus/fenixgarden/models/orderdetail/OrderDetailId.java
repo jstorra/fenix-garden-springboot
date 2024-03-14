@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class OrderDetailId implements Serializable {
     @Column(name = "codigo_pedido")
     private Integer orderCode;
+    private Integer orderCode;
 
     @Column(name = "codigo_producto")
     private String productCode;
@@ -17,6 +18,7 @@ public class OrderDetailId implements Serializable {
         return orderCode;
     }
 
+    public void setOrderCode(int orderCode) {
     public void setOrderCode(int orderCode) {
         this.orderCode = orderCode;
     }
