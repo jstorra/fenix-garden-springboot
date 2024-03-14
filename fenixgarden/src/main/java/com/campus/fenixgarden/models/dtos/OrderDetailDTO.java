@@ -1,7 +1,5 @@
 package com.campus.fenixgarden.models.dtos;
 
-import com.campus.fenixgarden.models.orderdetail.OrderDetailId;
-
 public class OrderDetailDTO {
     private Integer orderCode;
     private String productCode;

@@ -1,18 +1,11 @@
 package com.campus.fenixgarden.models.dtos;
 
-import java.util.List;
-
 public class GamaProductDTO {
     private String gama;
     private String textDescription;
     private String htmlDescription;
     private String image;
-    private List<String> productCodes;
 
-    // Constructor vacío
-    public GamaProductDTO() {}
-
-    // Getters y setters
     public String getGama() {
         return gama;
     }
@@ -45,11 +38,4 @@ public class GamaProductDTO {
         this.image = image;
     }
 
-    public List<String> getProductCodes() {
-        return productCodes;
-    }
-
-    public void setProductCodes(List<String> productCodes) {
-        this.productCodes = productCodes;
-    }
 }
