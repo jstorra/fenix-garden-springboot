@@ -1,7 +1,7 @@
 package com.campus.fenixgarden.models.dtos;
 
 public class CustomerDTO {
-    private int customerCode;
+    private Integer customerCode;
     private String customerName;
     private String contactName;
     private String contactLastName;
@@ -14,13 +14,13 @@ public class CustomerDTO {
     private String country;
     private String zipCode;
     private double creditLimit;
-    private int repSalesCode;
+    private Integer repSalesCode;
 
-    public int getCustomerCode() {
+    public Integer getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(int customerCode) {
+    public void setCustomerCode(Integer customerCode) {
         this.customerCode = customerCode;
     }
 
@@ -120,11 +120,11 @@ public class CustomerDTO {
         this.creditLimit = creditLimit;
     }
 
-    public int getRepSalesCode() {
+    public Integer getRepSalesCode() {
         return repSalesCode;
     }
 
-    public void setRepSalesCode(int repSalesCode) {
+    public void setRepSalesCode(Integer repSalesCode) {
         this.repSalesCode = repSalesCode;
     }
 }

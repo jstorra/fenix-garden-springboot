@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Embeddable
 public class OrderDetailId implements Serializable {
     @Column(name = "codigo_pedido")
-    private int orderCode;
+    private Integer orderCode;
 
     @Column(name = "codigo_producto")
     private String productCode;

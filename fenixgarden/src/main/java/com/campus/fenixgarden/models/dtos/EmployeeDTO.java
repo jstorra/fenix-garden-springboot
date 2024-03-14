@@ -1,7 +1,7 @@
 package com.campus.fenixgarden.models.dtos;
 
 public class EmployeeDTO {
-    private int employeeCode;
+    private Integer employeeCode;
     private String name;
     private String lastName1;
     private String lastName2;
@@ -9,13 +9,13 @@ public class EmployeeDTO {
     private String email;
     private String rol;
     private String officeCode;
-    private int bossCode;
+    private Integer bossCode;
 
-    public int getEmployeeCode() {
+    public Integer getEmployeeCode() {
         return employeeCode;
     }
 
-    public void setEmployeeCode(int employeeCode) {
+    public void setEmployeeCode(Integer employeeCode) {
         this.employeeCode = employeeCode;
     }
 
@@ -75,11 +75,11 @@ public class EmployeeDTO {
         this.officeCode = officeCode;
     }
 
-    public int getBossCode() {
+    public Integer getBossCode() {
         return bossCode;
     }
 
-    public void setBossCode(int bossCode) {
+    public void setBossCode(Integer bossCode) {
         this.bossCode = bossCode;
     }
 }

@@ -11,7 +11,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_empleado")
-    private int employeeCode;
+    private Integer employeeCode;
 
     @Column(name = "nombre", nullable = false)
     private String name;
@@ -42,11 +42,11 @@ public class Employee {
     @OneToMany(mappedBy = "repSales", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Customer> customers;
 
-    public int getEmployeeCode() {
+    public Integer getEmployeeCode() {
         return employeeCode;
     }
 
-    public void setEmployeeCode(int employeeCode) {
+    public void setEmployeeCode(Integer employeeCode) {
         this.employeeCode = employeeCode;
     }
 
@@ -131,12 +131,8 @@ public class Employee {
         dto.setExtension(this.extension);
         dto.setEmail(this.email);
         dto.setRol(this.rol);
-        if (this.office != null) {
-            dto.setOfficeCode(this.office.getOfficeCode());
-        }
-        if (this.boss != null) {
-            dto.setBossCode(this.boss.getEmployeeCode());
-        }
+        dto.setOfficeCode(this.office != null ? this.office.getOfficeCode() : null);
+        dto.setBossCode(this.boss != null ? this.boss.getEmployeeCode() : null);
         return dto;
     }
 

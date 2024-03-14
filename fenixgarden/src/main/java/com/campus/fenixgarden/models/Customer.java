@@ -11,7 +11,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_cliente")
-    private int customerCode;
+    private Integer customerCode;
 
     @Column(name = "nombre_cliente", nullable = false)
     private String customerName;
@@ -59,11 +59,11 @@ public class Customer {
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    public int getCustomerCode() {
+    public Integer getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(int customerCode) {
+    public void setCustomerCode(Integer customerCode) {
         this.customerCode = customerCode;
     }
 
@@ -202,7 +202,7 @@ public class Customer {
         dto.setCountry(this.country);
         dto.setZipCode(this.zipCode);
         dto.setCreditLimit(this.creditLimit);
-        dto.setRepSalesCode(this.repSales.getEmployeeCode());
+        dto.setRepSalesCode(this.repSales != null ? this.repSales.getEmployeeCode() : null);
         return dto;
     }
 

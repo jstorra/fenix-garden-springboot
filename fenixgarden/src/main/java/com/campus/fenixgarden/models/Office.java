@@ -1,5 +1,6 @@
 package com.campus.fenixgarden.models;
 
+import com.campus.fenixgarden.models.dtos.OfficeDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -105,6 +106,19 @@ public class Office {
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
+    }
+
+    public OfficeDTO toDTO() {
+        OfficeDTO dto = new OfficeDTO();
+        dto.setOfficeCode(this.officeCode);
+        dto.setCity(this.city);
+        dto.setCountry(this.country);
+        dto.setRegion(this.region);
+        dto.setZipCode(this.zipCode);
+        dto.setPhone(this.phone);
+        dto.setAddressLine1(this.addressLine1);
+        dto.setAddressLine2(this.addressLine2);
+        return dto;
     }
 
     @Override

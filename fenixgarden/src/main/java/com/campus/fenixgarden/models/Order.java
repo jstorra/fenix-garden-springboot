@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Order {
     @Id
     @Column(name = "codigo_pedido")
-    private int orderCode;
+    private Integer orderCode;
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_pedido", nullable = false)
     private LocalDate orderDate;
@@ -32,11 +32,11 @@ public class Order {
     @JoinColumn(name = "codigo_cliente", nullable = false)
     private Customer customer;
 
-    public int getOrderCode() {
+    public Integer getOrderCode() {
         return orderCode;
     }
 
-    public void setOrderCode(int orderCode) {
+    public void setOrderCode(Integer orderCode) {
         this.orderCode = orderCode;
     }
 

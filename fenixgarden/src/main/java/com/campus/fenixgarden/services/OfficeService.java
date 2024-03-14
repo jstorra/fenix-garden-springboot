@@ -1,6 +1,7 @@
 package com.campus.fenixgarden.services;
 
 import com.campus.fenixgarden.models.Office;
+import com.campus.fenixgarden.models.dtos.OfficeDTO;
 import com.campus.fenixgarden.repositories.OfficeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,9 @@ public class OfficeService {
         this.officeRepository = officeRepository;
     }
 
-    public List<Office> getAllOffices() {
-        return officeRepository.findAll();
+    public List<OfficeDTO> getAllOffices() {
+        return officeRepository.findAll().stream()
+                .map(Office::toDTO)
+                .toList();
     }
 }
