@@ -1,5 +1,7 @@
 package com.campus.fenixgarden.models;
 
+import com.campus.fenixgarden.models.dtos.GamaProductDTO;
+
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -61,6 +63,16 @@ public class GamaProduct {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public GamaProductDTO toDTO(){
+        GamaProductDTO dto = new GamaProductDTO();
+        dto.setGama(this.gama);
+        dto.setTextDescription(this.textDescription != null ? this.textDescription : null);
+        dto.setHtmlDescription(this.htmlDescription != null ? this.htmlDescription : null);
+        dto.setImage(this.image != null ? this.image : null);
+
+        return dto;
     }
 
     @Override

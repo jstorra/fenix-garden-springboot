@@ -2,6 +2,7 @@ package com.campus.fenixgarden.models.orderdetail;
 
 import com.campus.fenixgarden.models.Order;
 import com.campus.fenixgarden.models.Product;
+import com.campus.fenixgarden.models.dtos.OrderDetailDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -22,13 +23,13 @@ public class OrderDetail {
     private Product product;
 
     @Column(name = "cantidad", nullable = false)
-    private int amount;
+    private Integer amount;
 
     @Column(name = "precio_unidad", nullable = false)
     private double unitPrice;
 
     @Column(name = "numero_linea", nullable = false)
-    private int numberLine;
+    private Integer numberLine;
 
     public OrderDetailId getId() {
         return id;
@@ -54,7 +55,7 @@ public class OrderDetail {
         this.product = product;
     }
 
-    public int getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
@@ -70,12 +71,23 @@ public class OrderDetail {
         this.unitPrice = unitPrice;
     }
 
-    public int getNumberLine() {
+    public Integer getNumberLine() {
         return numberLine;
     }
 
     public void setNumberLine(int numberLine) {
         this.numberLine = numberLine;
+    }
+
+    public OrderDetailDTO toDTO(){
+        OrderDetailDTO dto = new OrderDetailDTO();
+        dto.setOrderCode(this.getOrder().getOrderCode());
+        dto.setProductCode(this.getProduct().getProductCode());
+        dto.setAmount(this.amount);
+        dto.setUnitPrice(this.unitPrice);
+        dto.setNumberLine(this.numberLine);
+
+        return dto;
     }
 
     @Override

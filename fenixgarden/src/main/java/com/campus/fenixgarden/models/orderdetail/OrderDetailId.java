@@ -13,11 +13,11 @@ public class OrderDetailId implements Serializable {
     @Column(name = "codigo_producto")
     private String productCode;
 
-    public int getOrderCode() {
+    public Integer getOrderCode() {
         return orderCode;
     }
 
-    public void setOrderCode(int orderCode) {
+    public void setOrderCode(Integer orderCode) {
         this.orderCode = orderCode;
     }
 
