@@ -6,6 +6,8 @@ import com.campus.fenixgarden.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 @Service
@@ -24,4 +26,19 @@ public class OrderService {
                 .map(Order::toDTO)
                 .toList();
     }
+
+    public List<String> findDistinctStatus(){
+        return orderRepository.findDistinctStatus();
+    }
+
+    public List<Object> findOrderDeliveredLate(){
+        return orderRepository.findOrderDeliveredLate();
+    }
+
+     public List<Object> findOrderDeliveredLateAtLeast(){
+        return orderRepository.findOrderDeliveredLateAtLeast();
+     }
+
+
+
 }

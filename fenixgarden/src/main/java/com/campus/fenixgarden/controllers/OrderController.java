@@ -26,4 +26,19 @@ public class OrderController {
     public List<OrderDTO> getAllOrders(){
         return orderService.getAllOrders();
     }
+
+    @GetMapping("/find-status")
+    public List<String> findDistinctStatus(){
+        return orderService.findDistinctStatus();
+    }
+
+    @GetMapping("/order-delivered-late")
+    public List<Object> findOrderDeliveredLate(){
+        return orderService.findOrderDeliveredLate();
+    }
+
+    @GetMapping("/order-delivered-late-at-least")
+    public List<Object> findOrderDeliveredLateAtLeast(){
+        return orderService.findOrderDeliveredLateAtLeast();
+    }
 }
