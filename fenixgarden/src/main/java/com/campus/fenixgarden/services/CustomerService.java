@@ -22,4 +22,20 @@ public class CustomerService {
                 .map(Customer::toDTO)
                 .toList();
     }
+
+    public List<CustomerDTO> findByCountryLikeIgnoreCase() {
+        return customerRepository.findByCountryLikeIgnoreCase("spain").stream()
+                .map(Customer::toDTO)
+                .toList();
+    }
+
+    public List<Integer> findCustomerCodesWithPaymentsIn2008() {
+        return customerRepository.findCustomerCodesWithPaymentsIn2008();
+    }
+
+    public List<CustomerDTO> findCustomersFromMadridWithRepSales1130() {
+        return customerRepository.findCustomersFromMadridWithRepSales1130().stream()
+                .map(Customer::toDTO)
+                .toList();
+    };
 }
