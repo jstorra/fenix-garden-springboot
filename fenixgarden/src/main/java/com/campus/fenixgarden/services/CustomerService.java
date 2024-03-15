@@ -23,21 +23,21 @@ public class CustomerService {
                 .toList();
     }
 
-    public List<CustomerDTO> findByCountryLikeIgnoreCase() {
-        return customerRepository.findByCountryLikeIgnoreCase("spain").stream()
+    public List<CustomerDTO> findByCountryLikeIgnoreCase(String country) {
+        return customerRepository.findByCountryLikeIgnoreCase(country).stream()
                 .map(Customer::toDTO)
                 .toList();
     }
 
-    public List<Integer> findCustomerCodesWithPaymentsIn2008() {
-        return customerRepository.findCustomerCodesWithPaymentsIn2008();
+    public List<Integer> findCustomerCodesWithPaymentsInYear(String year) {
+        return customerRepository.findCustomerCodesWithPaymentsInYear(year);
     }
 
     public List<CustomerDTO> findCustomersFromMadridWithRepSales1130() {
         return customerRepository.findCustomersFromMadridWithRepSales1130().stream()
                 .map(Customer::toDTO)
                 .toList();
-    };
+    }
 
     public List<Object[]> findCustomersWithRepSales() {
         return customerRepository.findCustomersWithRepSales();
@@ -45,9 +45,39 @@ public class CustomerService {
 
     public List<Object[]> findCustomersWithPaymentsAndRepSales() {
         return customerRepository.findCustomersWithPaymentsAndRepSales();
-    };
+    }
 
     public List<Object[]> findCustomersWithoutPaymentsAndRepSales() {
         return customerRepository.findCustomersWithoutPaymentsAndRepSales();
+    }
+
+    public List<Object[]> findCustomersWithPaymentsAndRepSalesAndOfficeCity() {
+        return customerRepository.findCustomersWithPaymentsAndRepSalesAndOfficeCity();
+    }
+
+    public List<Object[]> findCustomersWithoutPaymentsAndRepSalesAndOfficeCity() {
+        return customerRepository.findCustomersWithoutPaymentsAndRepSalesAndOfficeCity();
+    }
+
+    public List<CustomerDTO> findCustomersWithoutPayments() {
+        return customerRepository.findCustomersWithoutPayments().stream()
+                .map(Customer::toDTO)
+                .toList();
+    }
+
+    public List<CustomerDTO> findCustomersWithoutOrders() {
+        return customerRepository.findCustomersWithoutOrders().stream()
+                .map(Customer::toDTO)
+                .toList();
+    }
+
+    public List<CustomerDTO> findCustomersWithoutPaymentsAndOrders() {
+        return customerRepository.findCustomersWithoutPaymentsAndOrders().stream()
+                .map(Customer::toDTO)
+                .toList();
+    }
+
+    public List<String> findCustomersWithLateDeliveries() {
+        return customerRepository.findCustomersWithLateDeliveries();
     }
 }
