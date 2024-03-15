@@ -3,10 +3,7 @@ package com.campus.fenixgarden.controllers;
 import com.campus.fenixgarden.models.dtos.OrderDTO;
 import com.campus.fenixgarden.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,5 +37,25 @@ public class OrderController {
     @GetMapping("/order-delivered-late-at-least")
     public List<Object> findOrderDeliveredLateAtLeast(){
         return orderService.findOrderDeliveredLateAtLeast();
+    }
+
+    @GetMapping("/rejected-in-year/{year}")
+    public  List<Object> findRejectedOrdersInYear(@PathVariable String year){
+        return orderService.findRejectedOrdersInYear(year);
+    }
+
+    @GetMapping("/delivered-january")
+    public List<Object> findAllOrdersDeliveredInJanuary(){
+        return orderService.findAllOrdersDeliveredInJanuary();
+    }
+
+    @GetMapping("/delayed-deliveries")
+    public List<String> findClientsWithDelayedDeliveries(){
+        return orderService.findClientsWithDelayedDeliveries();
+    }
+
+    @GetMapping("/count-by-state")
+    public List<Object> countOrdersByState(){
+        return orderService.countOrdersByState();
     }
 }

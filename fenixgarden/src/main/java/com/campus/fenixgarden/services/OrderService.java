@@ -39,6 +39,19 @@ public class OrderService {
         return orderRepository.findOrderDeliveredLateAtLeast();
      }
 
+    public  List<Object> findRejectedOrdersInYear(String year){
+        return orderRepository.findRejectedOrdersInYear(year);
+    }
 
+    public List<Object> findAllOrdersDeliveredInJanuary(){
+        return orderRepository.findAllOrdersDeliveredInJanuary();
+    }
 
+    public List<String> findClientsWithDelayedDeliveries(){
+        return orderRepository.findClientsWithDelayedDeliveries();
+    }
+
+    public List<Object> countOrdersByState(){
+        return orderRepository.countOrdersByState();
+    }
 }

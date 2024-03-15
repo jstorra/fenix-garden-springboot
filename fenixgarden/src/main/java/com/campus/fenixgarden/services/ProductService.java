@@ -19,4 +19,23 @@ public class ProductService {
                 .map(Product::toDTO)
                 .toList();
     }
+
+    public List<Object> findOrnamentalProductsInStockGreaterThan100(String gama){
+        return productRepository.findOrnamentalProductsInStockGreaterThan100(gama);
+    }
+
+    public List<Object> findProductsNeverOrdered(){
+        return productRepository.findProductsNeverOrdered();
+    }
+
+    public List<Object> findProductsNeverOrderedWithName(){
+        return productRepository.findProductsNeverOrderedWithName();
+    }
+    public List<Object> findMaxAndMinProductPrices(){
+        return productRepository.findMaxAndMinProductPrices();
+    }
+
+    public List<Object> findTop20BestSellingProducts(){
+        return productRepository.findTop20BestSellingProducts();
+    }
 }

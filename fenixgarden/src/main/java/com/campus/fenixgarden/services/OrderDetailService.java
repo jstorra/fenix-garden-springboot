@@ -19,4 +19,28 @@ public class OrderDetailService {
                 .map(OrderDetail::toDTO)
                 .toList();
     }
+
+    public List<Object> calculateTotalRevenue(){
+        return orderDetailRepository.calculateTotalRevenue();
+    }
+
+    public List<Object> calculateRevenueByProduct(){
+        return orderDetailRepository.calculateRevenueByProduct();
+    }
+
+    public List<Object> calculateRevenueByProductFilteredByOR(){
+        return orderDetailRepository.calculateRevenueByProductFilteredByOR();
+    }
+
+    public List<Object> listTotalSalesOfProductsOver3000Euros(){
+        return orderDetailRepository.listTotalSalesOfProductsOver3000Euros();
+    }
+
+    public List<Object> calculateNumberOfProductsPerOrder(){
+        return orderDetailRepository.calculateNumberOfProductsPerOrder();
+    }
+
+    public  List<Object> calculateTotalQuantityPerOrder(){
+        return orderDetailRepository.calculateTotalQuantityPerOrder();
+    }
 }
