@@ -38,4 +38,16 @@ public class CustomerService {
                 .map(Customer::toDTO)
                 .toList();
     };
+
+    public List<Object[]> findCustomersWithRepSales() {
+        return customerRepository.findCustomersWithRepSales();
+    }
+
+    public List<Object[]> findCustomersWithPaymentsAndRepSales() {
+        return customerRepository.findCustomersWithPaymentsAndRepSales();
+    };
+
+    public List<Object[]> findCustomersWithoutPaymentsAndRepSales() {
+        return customerRepository.findCustomersWithoutPaymentsAndRepSales();
+    }
 }

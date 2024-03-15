@@ -40,4 +40,19 @@ public class CustomerController {
     public List<CustomerDTO> findCustomersFromMadridWithRepSales1130() {
         return customerService.findCustomersFromMadridWithRepSales1130();
     };
+
+    @GetMapping("/clients-sales-representatives")
+    public List<Object[]> findCustomersWithRepSales() {
+        return customerService.findCustomersWithRepSales();
+    }
+
+    @GetMapping("/clients-with-payments-and-representatives")
+    public List<Object[]> findCustomersWithPaymentsAndRepSales() {
+        return customerService.findCustomersWithPaymentsAndRepSales();
+    }
+
+    @GetMapping("/clients-without-payments-and-representatives")
+    public List<Object[]> findCustomersWithoutPaymentsAndRepSales() {
+        return customerService.findCustomersWithoutPaymentsAndRepSales();
+    }
 }
