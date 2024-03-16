@@ -1,9 +1,11 @@
 package com.campus.fenixgarden.models;
 
 import com.campus.fenixgarden.models.dtos.OrderDTO;
+import com.campus.fenixgarden.models.orderdetail.OrderDetail;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "pedido")
@@ -98,6 +100,7 @@ public class Order {
         dto.setStatus(this.status);
         dto.setComments(this.comments != null ? this.comments : null);
         dto.setCustomerId(this.getCustomer().getCustomerCode());
+
         return dto;
     }
 

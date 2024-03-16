@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/orderdetails")
@@ -28,29 +29,29 @@ public class OrderDetailController {
     }
 
     @GetMapping("/total-revenue")
-    public List<Object> calculateTotalRevenue(){
+    public List<Map<Object, Object>> calculateTotalRevenue(){
         return orderDetailService.calculateTotalRevenue();
     }
 
     @GetMapping("/total-revenue-by-product")
-    public List<Object> calculateRevenueByProduct(){
+    public List<Map<Object, Object>> calculateRevenueByProduct(){
         return orderDetailService.calculateRevenueByProduct();
     }
     @GetMapping("/total-revenue-by-product-by-or")
-    public List<Object> calculateRevenueByProductFilteredByOR(){
+    public List<Map<Object, Object>> calculateRevenueByProductFilteredByOR(){
         return orderDetailService.calculateRevenueByProductFilteredByOR();
     }
     @GetMapping("/list-total-sales-product-over")
-    public List<Object> listTotalSalesOfProductsOver3000Euros(){
+    public List<Map<Object, Object>> listTotalSalesOfProductsOver3000Euros(){
         return orderDetailService.listTotalSalesOfProductsOver3000Euros();
     }
     @GetMapping("/number-of-product-per-order")
-    public List<Object> calculateNumberOfProductsPerOrder(){
+    public List<Map<Object, Object>> calculateNumberOfProductsPerOrder(){
         return orderDetailService.calculateNumberOfProductsPerOrder();
     }
 
     @GetMapping("/total-amount-per-order")
-    public  List<Object> calculateTotalQuantityPerOrder(){
+    public  List<Map<Object, Object>> calculateTotalQuantityPerOrder(){
         return orderDetailService.calculateTotalQuantityPerOrder();
     }
 }

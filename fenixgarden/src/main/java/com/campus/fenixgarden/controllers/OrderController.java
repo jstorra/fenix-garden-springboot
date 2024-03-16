@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/orders")
@@ -30,22 +31,22 @@ public class OrderController {
     }
 
     @GetMapping("/order-delivered-late")
-    public List<Object> findOrderDeliveredLate(){
+    public List<Map<Object, Object>> findOrderDeliveredLate(){
         return orderService.findOrderDeliveredLate();
     }
 
     @GetMapping("/order-delivered-late-at-least")
-    public List<Object> findOrderDeliveredLateAtLeast(){
+    public List<Map<Object, Object>> findOrderDeliveredLateAtLeast(){
         return orderService.findOrderDeliveredLateAtLeast();
     }
 
     @GetMapping("/rejected-in-year/{year}")
-    public  List<Object> findRejectedOrdersInYear(@PathVariable String year){
+    public  List<OrderDTO> findRejectedOrdersInYear(@PathVariable String year){
         return orderService.findRejectedOrdersInYear(year);
     }
 
     @GetMapping("/delivered-january")
-    public List<Object> findAllOrdersDeliveredInJanuary(){
+    public List<OrderDTO> findAllOrdersDeliveredInJanuary(){
         return orderService.findAllOrdersDeliveredInJanuary();
     }
 
@@ -55,7 +56,7 @@ public class OrderController {
     }
 
     @GetMapping("/count-by-state")
-    public List<Object> countOrdersByState(){
+    public List<Map<Object, Object>> countOrdersByState(){
         return orderService.countOrdersByState();
     }
 }
