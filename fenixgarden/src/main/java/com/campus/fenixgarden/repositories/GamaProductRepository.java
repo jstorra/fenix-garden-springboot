@@ -9,7 +9,6 @@ import java.util.List;
 
 @Repository
 public interface GamaProductRepository extends JpaRepository<GamaProduct, String> {
-
     //1
     @Query("SELECT DISTINCT c.customerName, g.gama " +
             "FROM OrderDetail od " +
@@ -19,6 +18,5 @@ public interface GamaProductRepository extends JpaRepository<GamaProduct, String
             "JOIN pr.gamaProduct g " +
             "GROUP BY c.customerName, g.gama")
     List<Object[]> listProductRangesPurchasedByCustomer();
-
 }
 

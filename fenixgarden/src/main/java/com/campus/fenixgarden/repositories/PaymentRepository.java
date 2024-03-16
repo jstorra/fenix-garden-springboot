@@ -16,16 +16,18 @@ public interface PaymentRepository extends JpaRepository<Payment, String> {
             "AND p.wayToPay = 'Paypal' " +
             "ORDER BY p.total DESC")
     List<Payment> findPaymentsIn2008ByPaypal();
+
     //2
     @Query("SELECT DISTINCT p.wayToPay FROM Payment p")
     List<String> findAllPaymentMethods();
+
     //3
     @Query("SELECT AVG(p.total) FROM Payment p WHERE YEAR(p.paymentDate) = 2009")
-    Double findAveragePaymentFor2009();
+    double findAveragePaymentFor2009();
+
     //4
     @Query("SELECT YEAR(p.paymentDate) AS year, SUM(p.total) AS totalAmount " +
             "FROM Payment p " +
             "GROUP BY YEAR(p.paymentDate)")
     List<Object[]> findTotalPaymentsByYear();
-
 }

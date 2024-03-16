@@ -26,7 +26,7 @@ public class EmployeeController {
 
     // 1)
     @GetMapping("/employees-under-supervisor-code/{bossCode}") // 7
-    List<Map<Object, Object>> employeesUnderSupervisorCode(@PathVariable int bossCode) {
+    List<Map<Object, Object>> employeesUnderSupervisorCode(@PathVariable Object bossCode) {
         return employeeService.employeesUnderSupervisorCode(bossCode);
     }
 

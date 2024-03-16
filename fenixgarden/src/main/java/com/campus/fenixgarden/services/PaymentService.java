@@ -25,20 +25,24 @@ public class PaymentService {
                 .toList();
     }
 
+    // 1)
     public List<PaymentDTO> findPaymentsIn2008ByPaypal(){
         return paymentRepository.findPaymentsIn2008ByPaypal().stream()
                 .map(Payment::toDTO)
                 .toList();
     }
 
+    // 2)
     public List<String> findAllPaymentMethods(){
         return paymentRepository.findAllPaymentMethods();
     }
 
-    public Double findAveragePaymentFor2009(){
+    // 3)
+    public double findAveragePaymentFor2009(){
         return paymentRepository.findAveragePaymentFor2009();
     }
 
+    // 4)
     public List<Map<Object, Object>> findTotalPaymentsByYear() {
         List<Object[]> results = paymentRepository.findTotalPaymentsByYear();
         return TransformResultList.transformResultList(results, "paymentDate", "total");

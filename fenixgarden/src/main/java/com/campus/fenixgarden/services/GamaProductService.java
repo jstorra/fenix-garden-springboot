@@ -12,9 +12,12 @@ import java.util.Map;
 
 @Service
 public class GamaProductService {
+    private final GamaProductRepository gamaProductRepository;
 
     @Autowired
-    public GamaProductRepository gamaProductRepository;
+    public GamaProductService(GamaProductRepository gamaProductRepository) {
+        this.gamaProductRepository = gamaProductRepository;
+    }
 
     public List<GamaProductDTO> getAllGamaProducts(){
         return gamaProductRepository.findAll().stream()
@@ -22,6 +25,7 @@ public class GamaProductService {
                 .toList();
     }
 
+    // 1)
     public List<Map<Object, Object>> listProductRangesPurchasedByCustomer() {
         List<Object[]> results = gamaProductRepository.listProductRangesPurchasedByCustomer();
         return TransformResultList.transformResultList(results, "customerName", "gama");

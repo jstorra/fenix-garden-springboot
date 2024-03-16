@@ -1,5 +1,6 @@
 package com.campus.fenixgarden.services;
 
+import com.campus.fenixgarden.exceptions.InvalidNumberFormatException;
 import com.campus.fenixgarden.models.Employee;
 import com.campus.fenixgarden.models.TransformResultList;
 import com.campus.fenixgarden.models.dtos.EmployeeDTO;
@@ -26,9 +27,14 @@ public class EmployeeService {
     }
 
     // 1)
-    public List<Map<Object, Object>> employeesUnderSupervisorCode(int bossCode) {
-        List<Object[]> results = employeeRepository.employeesUnderSupervisorCode(bossCode);
-        return TransformResultList.transformResultList(results, "employeeCode", "employeeName", "email");
+    public List<Map<Object, Object>> employeesUnderSupervisorCode(Object bossCode) {
+        try {
+            int parsedBossCode = Integer.parseInt(bossCode.toString());
+            List<Object[]> results = employeeRepository.employeesUnderSupervisorCode(parsedBossCode);
+            return TransformResultList.transformResultList(results, "employeeCode", "employeeName", "email");
+        } catch(NumberFormatException e) {
+            throw new InvalidNumberFormatException("The parameter entered '" + bossCode + "' doesn't have a valid format");
+        }
     }
 
     // 2)

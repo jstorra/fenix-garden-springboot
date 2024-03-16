@@ -17,7 +17,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
             + "FROM Payment p "
             + "WHERE YEAR(p.paymentDate) = ?1 "
             + "AND p.customer.customerCode IS NOT NULL")
-    List<Integer> clientsWithPaymentsYear(String year);
+    List<Integer> clientsWithPaymentsYear(int year);
 
     // 3)
     @Query("SELECT c FROM Customer c "

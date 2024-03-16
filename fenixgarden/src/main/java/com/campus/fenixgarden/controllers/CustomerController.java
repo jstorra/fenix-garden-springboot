@@ -32,7 +32,7 @@ public class CustomerController {
 
     // 2)
     @GetMapping("/clients-with-payments-year/{year}") // 2008
-    public List<Integer> clientsWithPaymentsYear(@PathVariable String year) {
+    public List<Integer> clientsWithPaymentsYear(@PathVariable Object year) {
         return customerService.clientsWithPaymentsYear(year);
     }
 

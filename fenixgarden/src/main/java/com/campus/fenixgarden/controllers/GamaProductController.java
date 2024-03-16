@@ -15,8 +15,7 @@ import java.util.Map;
 @RequestMapping("/gamaproducts")
 @CrossOrigin("*")
 public class GamaProductController {
-
-    public  final GamaProductService gamaProductService;
+    private final GamaProductService gamaProductService;
 
     @Autowired
     public GamaProductController(GamaProductService gamaProductService) {
@@ -28,6 +27,7 @@ public class GamaProductController {
         return gamaProductService.getAllGamaProducts();
     }
 
+    // 1)
     @GetMapping("/list-gamas")
     public List<Map<Object, Object>> listProductRangesPurchasedByCustomer(){
         return gamaProductService.listProductRangesPurchasedByCustomer();
