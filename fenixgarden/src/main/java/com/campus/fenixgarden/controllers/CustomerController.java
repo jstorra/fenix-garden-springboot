@@ -1,12 +1,14 @@
 package com.campus.fenixgarden.controllers;
 
 import com.campus.fenixgarden.models.Customer;
+import com.campus.fenixgarden.models.TransformResultList;
 import com.campus.fenixgarden.models.dtos.CustomerDTO;
 import com.campus.fenixgarden.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/customers")
@@ -24,63 +26,123 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
-    @GetMapping("/clients-from/{country}") // Spain
+    // 1)
+    @GetMapping("/clients-from-country/{country}") // Spain
     public List<CustomerDTO> findByCountryLikeIgnoreCase(@PathVariable String country) {
         return customerService.findByCountryLikeIgnoreCase(country);
     }
 
-    @GetMapping("/clients-with-payments/{year}") // 2008
-    public List<Integer> findCustomerCodesWithPaymentsInYear(@PathVariable String year) {
-        return customerService.findCustomerCodesWithPaymentsInYear(year);
+    // 2)
+    @GetMapping("/clients-with-payments-year/{year}") // 2008
+    public List<Integer> clientsWithPaymentsYear(@PathVariable String year) {
+        return customerService.clientsWithPaymentsYear(year);
     }
 
+    // 3)
     @GetMapping("/clients-in-madrid-with-specific-representatives")
-    public List<CustomerDTO> findCustomersFromMadridWithRepSales1130() {
-        return customerService.findCustomersFromMadridWithRepSales1130();
+    public List<CustomerDTO> clientsInMadridWithSpecificRepresentatives() {
+        return customerService.clientsInMadridWithSpecificRepresentatives();
     }
 
+    // 4)
     @GetMapping("/clients-sales-representatives")
-    public List<Object[]> findCustomersWithRepSales() {
-        return customerService.findCustomersWithRepSales();
+    public List<Map<Object, Object>> clientsSalesRepresentatives() {
+        return customerService.clientsSalesRepresentatives();
     }
 
+    // 5)
     @GetMapping("/clients-with-payments-and-representatives")
-    public List<Object[]> findCustomersWithPaymentsAndRepSales() {
-        return customerService.findCustomersWithPaymentsAndRepSales();
+    public List<Map<Object, Object>> clientsWithPaymentsAndRepresentatives() {
+        return customerService.clientsWithPaymentsAndRepresentatives();
     }
 
+    // 6)
     @GetMapping("/clients-without-payments-and-representatives")
-    public List<Object[]> findCustomersWithoutPaymentsAndRepSales() {
-        return customerService.findCustomersWithoutPaymentsAndRepSales();
+    public List<Map<Object, Object>> clientsWithoutPaymentsAndRepresentatives() {
+        return customerService.clientsWithoutPaymentsAndRepresentatives();
     }
 
+    // 7)
     @GetMapping("/clients-with-payments-and-representatives-with-office-city")
-    public List<Object[]> findCustomersWithPaymentsAndRepSalesAndOfficeCity() {
-        return customerService.findCustomersWithPaymentsAndRepSalesAndOfficeCity();
+    public List<Map<Object, Object>> clientsWithPaymentsAndRepresentativesWithOfficeCity() {
+        return customerService.clientsWithPaymentsAndRepresentativesWithOfficeCity();
     }
 
+    // 8)
     @GetMapping("/clients-without-payments-and-representatives-with-office-city")
-    public List<Object[]> findCustomersWithoutPaymentsAndRepSalesAndOfficeCity() {
-        return customerService.findCustomersWithoutPaymentsAndRepSalesAndOfficeCity();
+    public List<Map<Object, Object>> clientsWithoutPaymentsAndRepresentativesWithOfficeCity() {
+        return customerService.clientsWithoutPaymentsAndRepresentativesWithOfficeCity();
     }
 
+    // 9)
     @GetMapping("/clients-without-payments")
-    public List<CustomerDTO> findCustomersWithoutPayments() {
-        return customerService.findCustomersWithoutPayments();
+    public List<CustomerDTO> clientsWithoutPayments() {
+        return customerService.clientsWithoutPayments();
     }
 
+    // 10)
     @GetMapping("/clients-without-orders")
-    public List<CustomerDTO> findCustomersWithoutOrders() {
-        return customerService.findCustomersWithoutOrders();
+    public List<CustomerDTO> clientsWithoutOrders() {
+        return customerService.clientsWithoutOrders();
     }
 
+    // 11)
     @GetMapping("/clients-without-payments-and-orders")
-    public List<CustomerDTO> findCustomersWithoutPaymentsAndOrders() {
-        return customerService.findCustomersWithoutPaymentsAndOrders();
+    public List<CustomerDTO> clientsWithoutPaymentsAndOrders() {
+        return customerService.clientsWithoutPaymentsAndOrders();
     }
 
+    // 12)
     @GetMapping("/clients-with-late-deliveries")
-    public List<String> findCustomersWithLateDeliveries() {
-        return customerService.findCustomersWithLateDeliveries();
+    public List<String> clientsWithLateDeliveries() {
+        return customerService.clientsWithLateDeliveries();
+    }
+
+    // 13)
+    @GetMapping("/clients-with-orders-but-no-payments")
+    public List<CustomerDTO> clientsWithOrdersButNoPayments() {
+        return customerService.clientsWithOrdersButNoPayments();
+    }
+
+    // 14)
+    @GetMapping("/clients-count-by-country")
+    public List<Map<Object, Object>> clientsCountByCountry() {
+        return customerService.clientsCountByCountry();
+    }
+
+    // 15)
+    @GetMapping("/total-clients")
+    public int totalClients() {
+        return customerService.totalClients();
+    }
+
+    // 16)
+    @GetMapping("/clients-count-city/{city}")
+    public int clientsCountInCity(@PathVariable String city) {
+        return customerService.clientsCountInCity(city);
+    }
+
+    // 17)
+    @GetMapping("/clients-count-in-cities-starting-with-M")
+    public List<Map<Object, Object>> clientsCountInCitiesStartingWithM() {
+        return customerService.clientsCountInCitiesStartingWithM();
+    }
+
+    // 18)
+    @GetMapping("/clients-without-sales-representative")
+    public int clientsWithoutSalesRepresentative() {
+        return customerService.clientsWithoutSalesRepresentative();
+    }
+
+    // 19)
+    @GetMapping("/sales-representatives-and-client-count")
+    public List<Map<Object, Object>> salesRepresentativesAndClientCount() {
+        return customerService.salesRepresentativesAndClientCount();
+    }
+
+    // 20)
+    @GetMapping("/first-last-payment-date-by-client")
+    public List<Map<Object, Object>> firstLastPaymentDateByClient() {
+        return customerService.firstLastPaymentDateByClient();
     }
 }
