@@ -29,7 +29,7 @@ public class Employee {
     private String email;
 
     @Column(name = "puesto")
-    private String rol;
+    private String role;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "codigo_oficina")
@@ -90,12 +90,12 @@ public class Employee {
         this.email = email;
     }
 
-    public String getRol() {
-        return rol;
+    public String getRole() {
+        return role;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Office getOffice() {
@@ -130,7 +130,7 @@ public class Employee {
         dto.setLastName2(this.lastName2);
         dto.setExtension(this.extension);
         dto.setEmail(this.email);
-        dto.setRol(this.rol);
+        dto.setRole(this.role);
         dto.setOfficeCode(this.office != null ? this.office.getOfficeCode() : null);
         dto.setBossCode(this.boss != null ? this.boss.getEmployeeCode() : null);
         return dto;
@@ -145,7 +145,7 @@ public class Employee {
                 ", lastName2='" + lastName2 + '\'' +
                 ", extension='" + extension + '\'' +
                 ", email='" + email + '\'' +
-                ", rol='" + rol + '\'' +
+                ", role='" + role + '\'' +
                 ", office=" + office +
                 ", boss=" + boss +
                 '}';
