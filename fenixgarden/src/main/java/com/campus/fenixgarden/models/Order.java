@@ -98,6 +98,7 @@ public class Order {
         dto.setStatus(this.status);
         dto.setComments(this.comments != null ? this.comments : null);
         dto.setCustomerId(this.getCustomer().getCustomerCode());
+
         return dto;
     }
 

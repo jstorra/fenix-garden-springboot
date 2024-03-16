@@ -1,5 +1,6 @@
 package com.campus.fenixgarden.controllers;
 
+import com.campus.fenixgarden.models.Office;
 import com.campus.fenixgarden.models.dtos.OfficeDTO;
 import com.campus.fenixgarden.services.OfficeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/offices")
@@ -24,5 +26,25 @@ public class OfficeController {
     @GetMapping
     public List<OfficeDTO> getAllOffices() {
         return officeService.getAllOffices();
+    }
+
+    @GetMapping("/list-office-and-country")
+    public List<Map<Object, Object>> listOfficeCodeAndCity(){
+        return officeService.listOfficeCodeAndCity();
+    }
+
+    @GetMapping("/city-and-phone")
+    public List<Map<Object, Object>> listCityAndPhoneOfSpanishOffices(){
+        return officeService.listCityAndPhoneOfSpanishOffices();
+    }
+
+    @GetMapping("/list-addresses")
+    public List<Map<Object, Object>> listOfficeAddressesWithClientsInFuenlabrada(){
+        return officeService.listOfficeAddressesWithClientsInFuenlabrada();
+    }
+
+    @GetMapping("/without-employees-representing-clients-with-fruit-orders")
+    public List<String> findOfficesWithoutFruitOrders() {
+        return officeService.findOfficesWithoutFruitOrders();
     }
 }
