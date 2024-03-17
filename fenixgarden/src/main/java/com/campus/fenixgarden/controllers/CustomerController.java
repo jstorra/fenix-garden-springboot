@@ -1,7 +1,5 @@
 package com.campus.fenixgarden.controllers;
 
-import com.campus.fenixgarden.models.Customer;
-import com.campus.fenixgarden.models.TransformResultList;
 import com.campus.fenixgarden.models.dtos.CustomerDTO;
 import com.campus.fenixgarden.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +32,7 @@ public class CustomerController {
 
     // 2)
     @GetMapping("/clients-with-payments-year/{year}") // 2008
-    public List<Integer> clientsWithPaymentsYear(@PathVariable String year) {
+    public List<Integer> clientsWithPaymentsYear(@PathVariable Object year) {
         return customerService.clientsWithPaymentsYear(year);
     }
 

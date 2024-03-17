@@ -7,7 +7,7 @@ public class EmployeeDTO {
     private String lastName2;
     private String extension;
     private String email;
-    private String rol;
+    private String role;
     private String officeCode;
     private Integer bossCode;
 
@@ -59,12 +59,12 @@ public class EmployeeDTO {
         this.email = email;
     }
 
-    public String getRol() {
-        return rol;
+    public String getRole() {
+        return role;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getOfficeCode() {

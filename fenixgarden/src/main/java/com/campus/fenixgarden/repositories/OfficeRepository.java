@@ -12,15 +12,18 @@ public interface OfficeRepository extends JpaRepository<Office, String> {
     //1
     @Query("SELECT o.officeCode, o.country FROM Office o")
     List<Object[]> listOfficeCodeAndCity();
+
     //2
     @Query("SELECT o.city, o.phone FROM Office o WHERE o.country = 'España'")
     List<Object[]> listCityAndPhoneOfSpanishOffices();
+
     //3
     @Query("SELECT DISTINCT e.office.addressLine1 AS OfficeAddress " +
             "FROM Employee e " +
             "JOIN e.customers c " +
             "WHERE c.city = 'Fuenlabrada'")
     List<Object[]> listOfficeAddressesWithClientsInFuenlabrada();
+
     //4
     @Query("SELECT DISTINCT o.officeCode " +
             "FROM Office o " +
@@ -32,6 +35,4 @@ public interface OfficeRepository extends JpaRepository<Office, String> {
             "JOIN Product prod ON od.product.productCode = prod.productCode " +
             "WHERE prod.gamaProduct.gama != 'Frutales'")
     List<String> findOfficesWithoutFruitOrders();
-
-
 }

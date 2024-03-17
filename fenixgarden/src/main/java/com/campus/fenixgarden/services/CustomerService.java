@@ -1,5 +1,7 @@
 package com.campus.fenixgarden.services;
 
+import com.campus.fenixgarden.exceptions.InvalidNumberFormatException;
+import com.campus.fenixgarden.exceptions.InvalidCountryFormatException;
 import com.campus.fenixgarden.models.Customer;
 import com.campus.fenixgarden.models.TransformResultList;
 import com.campus.fenixgarden.models.dtos.CustomerDTO;
@@ -26,14 +28,24 @@ public class CustomerService {
 
     // 1)
     public List<CustomerDTO> findByCountryLikeIgnoreCase(String country) {
+        char[] countryArray = country.toCharArray();
+        for (char c : countryArray) {
+            if (Character.isDigit(c))
+                throw new InvalidCountryFormatException("The parameter must not contain numbers");
+        }
         return customerRepository.findByCountryLikeIgnoreCase(country).stream()
                 .map(Customer::toDTO)
                 .toList();
     }
 
     // 2)
-    public List<Integer> clientsWithPaymentsYear(String year) {
-        return customerRepository.clientsWithPaymentsYear(year);
+    public List<Integer> clientsWithPaymentsYear(Object year) {
+        try {
+            int parsedYear = Integer.parseInt(year.toString());
+            return customerRepository.clientsWithPaymentsYear(parsedYear);
+        } catch (NumberFormatException e) {
+            throw new InvalidNumberFormatException("The parameter entered '" + year + "' doesn't have a valid format");
+        }
     }
 
     // 3)
@@ -119,6 +131,11 @@ public class CustomerService {
 
     // 16)
     public int clientsCountInCity(String city) {
+        char[] cityArray = city.toCharArray();
+        for (char c : cityArray) {
+            if (Character.isDigit(c))
+                throw new InvalidCountryFormatException("The parameter must not contain numbers");
+        }
         return customerRepository.clientsCountInCity(city);
     }
 

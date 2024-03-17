@@ -28,21 +28,25 @@ public class OfficeController {
         return officeService.getAllOffices();
     }
 
+    // 1)
     @GetMapping("/list-office-and-country")
     public List<Map<Object, Object>> listOfficeCodeAndCity(){
         return officeService.listOfficeCodeAndCity();
     }
 
+    // 2)
     @GetMapping("/city-and-phone")
     public List<Map<Object, Object>> listCityAndPhoneOfSpanishOffices(){
         return officeService.listCityAndPhoneOfSpanishOffices();
     }
 
+    // 3)
     @GetMapping("/list-addresses")
     public List<Map<Object, Object>> listOfficeAddressesWithClientsInFuenlabrada(){
         return officeService.listOfficeAddressesWithClientsInFuenlabrada();
     }
 
+    // 4)
     @GetMapping("/without-employees-representing-clients-with-fruit-orders")
     public List<String> findOfficesWithoutFruitOrders() {
         return officeService.findOfficesWithoutFruitOrders();

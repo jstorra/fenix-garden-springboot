@@ -18,6 +18,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, OrderD
             "FROM OrderDetail dp " +
             "JOIN dp.product p")
     List<Object[]> calculateTotalRevenue();
+
     //2
     @Query("SELECT " +
             "dp.product.productCode, " +
@@ -28,6 +29,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, OrderD
             "JOIN dp.product p " +
             "GROUP BY dp.product.productCode")
     List<Object[]> calculateRevenueByProduct();
+
     //3
     @Query("SELECT " +
             "dp.product.productCode, " +
@@ -39,6 +41,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, OrderD
             "WHERE dp.product.productCode LIKE 'OR%' " +
             "GROUP BY dp.product.productCode")
     List<Object[]> calculateRevenueByProductFilteredByOR();
+
     //4
     @Query("SELECT " +
             "dp.product.name, " +
@@ -50,17 +53,17 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, OrderD
             "GROUP BY dp.product.name " +
             "HAVING SUM(dp.amount * p.salePrice) > 3000")
     List<Object[]> listTotalSalesOfProductsOver3000Euros();
+
     //5
     @Query("SELECT o.orderCode, COUNT(DISTINCT od.product.productCode) " +
             "FROM OrderDetail od " +
             "JOIN od.order o " +
             "GROUP BY o.orderCode")
     List<Object[]> calculateNumberOfProductsPerOrder();
+
     //6
     @Query("SELECT dp.order.orderCode, SUM(dp.amount) " +
             "FROM OrderDetail dp " +
             "GROUP BY dp.order.orderCode")
     List<Object[]> calculateTotalQuantityPerOrder();
-
-
 }
