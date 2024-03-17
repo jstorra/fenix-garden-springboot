@@ -12,12 +12,8 @@ import java.util.Map;
 
 @Service
 public class OrderDetailService {
-    private final OrderDetailRepository orderDetailRepository;
-
     @Autowired
-    public OrderDetailService(OrderDetailRepository orderDetailRepository) {
-        this.orderDetailRepository = orderDetailRepository;
-    }
+    OrderDetailRepository orderDetailRepository;
 
     public List<OrderDetailDTO> getAllOrderDetails() {
         return orderDetailRepository.findAll().stream()

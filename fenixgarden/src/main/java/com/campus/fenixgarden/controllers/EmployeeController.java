@@ -12,12 +12,8 @@ import java.util.Map;
 @RequestMapping("/employees")
 @CrossOrigin("*")
 public class EmployeeController {
-    private final EmployeeService employeeService;
-
     @Autowired
-    public EmployeeController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
+    EmployeeService employeeService;
 
     @GetMapping
     public List<EmployeeDTO> getAllEmployees() {

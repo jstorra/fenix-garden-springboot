@@ -1,6 +1,5 @@
 package com.campus.fenixgarden.controllers;
 
-import com.campus.fenixgarden.models.Payment;
 import com.campus.fenixgarden.models.dtos.PaymentDTO;
 import com.campus.fenixgarden.services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +15,8 @@ import java.util.Map;
 @RequestMapping("/payments")
 @CrossOrigin("*")
 public class PaymentController {
-    private final PaymentService paymentService;
-
     @Autowired
-    public PaymentController(PaymentService paymentService) {
-        this.paymentService = paymentService;
-    }
+    PaymentService paymentService;
 
     @GetMapping
     public List<PaymentDTO> getAllPayments() {

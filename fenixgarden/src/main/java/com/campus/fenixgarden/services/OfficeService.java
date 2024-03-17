@@ -12,12 +12,8 @@ import java.util.Map;
 
 @Service
 public class OfficeService {
-    private final OfficeRepository officeRepository;
-
     @Autowired
-    public OfficeService(OfficeRepository officeRepository) {
-        this.officeRepository = officeRepository;
-    }
+    OfficeRepository officeRepository;
 
     public List<OfficeDTO> getAllOffices() {
         return officeRepository.findAll().stream()

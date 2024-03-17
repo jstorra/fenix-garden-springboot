@@ -1,6 +1,5 @@
 package com.campus.fenixgarden.controllers;
 
-import com.campus.fenixgarden.models.Office;
 import com.campus.fenixgarden.models.dtos.OfficeDTO;
 import com.campus.fenixgarden.services.OfficeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +15,8 @@ import java.util.Map;
 @RequestMapping("/offices")
 @CrossOrigin("*")
 public class OfficeController {
-    private final OfficeService officeService;
-
     @Autowired
-    public OfficeController(OfficeService officeService) {
-        this.officeService = officeService;
-    }
+    OfficeService officeService;
 
     @GetMapping
     public List<OfficeDTO> getAllOffices() {

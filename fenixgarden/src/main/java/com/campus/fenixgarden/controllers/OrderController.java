@@ -12,12 +12,8 @@ import java.util.Map;
 @RequestMapping("/orders")
 @CrossOrigin("*")
 public class OrderController {
-    private final OrderService orderService;
-
     @Autowired
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
-    }
+    OrderService orderService;
 
     @GetMapping
     public List<OrderDTO> getAllOrders(){

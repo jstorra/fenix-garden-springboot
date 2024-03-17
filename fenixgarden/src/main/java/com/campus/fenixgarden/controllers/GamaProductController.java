@@ -15,12 +15,8 @@ import java.util.Map;
 @RequestMapping("/gamaproducts")
 @CrossOrigin("*")
 public class GamaProductController {
-    private final GamaProductService gamaProductService;
-
     @Autowired
-    public GamaProductController(GamaProductService gamaProductService) {
-        this.gamaProductService = gamaProductService;
-    }
+    GamaProductService gamaProductService;
 
     @GetMapping
     public List<GamaProductDTO> getAllGamaProducts(){

@@ -12,12 +12,8 @@ import java.util.Map;
 @RequestMapping("/customers")
 @CrossOrigin("*")
 public class CustomerController {
-    private final CustomerService customerService;
-
     @Autowired
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
+    CustomerService customerService;
 
     @GetMapping
     public List<CustomerDTO> getAllCustomers() {

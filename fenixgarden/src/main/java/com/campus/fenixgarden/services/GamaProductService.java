@@ -12,12 +12,8 @@ import java.util.Map;
 
 @Service
 public class GamaProductService {
-    private final GamaProductRepository gamaProductRepository;
-
     @Autowired
-    public GamaProductService(GamaProductRepository gamaProductRepository) {
-        this.gamaProductRepository = gamaProductRepository;
-    }
+    GamaProductRepository gamaProductRepository;
 
     public List<GamaProductDTO> getAllGamaProducts(){
         return gamaProductRepository.findAll().stream()

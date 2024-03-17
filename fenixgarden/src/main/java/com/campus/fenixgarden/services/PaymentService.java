@@ -12,12 +12,8 @@ import java.util.Map;
 
 @Service
 public class PaymentService {
-    private final PaymentRepository paymentRepository;
-
     @Autowired
-    public PaymentService(PaymentRepository paymentRepository) {
-        this.paymentRepository = paymentRepository;
-    }
+    PaymentRepository paymentRepository;
 
     public List<PaymentDTO> getALllPayments() {
         return paymentRepository.findAll().stream()

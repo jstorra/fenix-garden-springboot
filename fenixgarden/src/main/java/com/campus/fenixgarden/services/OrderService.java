@@ -13,12 +13,8 @@ import java.util.Map;
 
 @Service
 public class OrderService {
-    private final OrderRepository orderRepository;
-
     @Autowired
-    public OrderService(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
+    OrderRepository orderRepository;
 
     public List<OrderDTO> getAllOrders(){
         return orderRepository.findAll().stream()

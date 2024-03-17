@@ -1,7 +1,6 @@
 package com.campus.fenixgarden.controllers;
 
 import com.campus.fenixgarden.models.dtos.OrderDetailDTO;
-import com.campus.fenixgarden.models.orderdetail.OrderDetail;
 import com.campus.fenixgarden.services.OrderDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,12 +15,9 @@ import java.util.Map;
 @RequestMapping("/orderdetails")
 @CrossOrigin("*")
 public class OrderDetailController {
-    private final OrderDetailService orderDetailService;
-
     @Autowired
-    public OrderDetailController(OrderDetailService orderDetailService) {
-        this.orderDetailService = orderDetailService;
-    }
+    OrderDetailService orderDetailService;
+
     @GetMapping
     public List<OrderDetailDTO> getAllOrderDetails(){
         return orderDetailService.getAllOrderDetails();

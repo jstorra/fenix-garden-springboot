@@ -12,12 +12,8 @@ import java.util.Map;
 @RequestMapping("/products")
 @CrossOrigin("*")
 public class ProductController {
-    private final ProductService productService;
-
     @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    ProductService productService;
 
     @GetMapping
     public List<ProductDTO> getAllProducts(){

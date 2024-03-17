@@ -13,12 +13,8 @@ import java.util.Map;
 
 @Service
 public class EmployeeService {
-    private final EmployeeRepository employeeRepository;
-
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
+    EmployeeRepository employeeRepository;
 
     public List<EmployeeDTO> getAllEmployees() {
         return employeeRepository.findAll().stream()

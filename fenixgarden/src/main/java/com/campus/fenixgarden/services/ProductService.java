@@ -13,12 +13,8 @@ import java.util.Map;
 
 @Service
 public class ProductService {
-    private final ProductRepository productRepository;
-
     @Autowired
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    ProductRepository productRepository;
 
     public List<ProductDTO> getAllProducts(){
         return productRepository.findAll().stream()
