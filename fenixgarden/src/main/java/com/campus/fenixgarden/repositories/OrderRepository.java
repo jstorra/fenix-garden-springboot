@@ -1,8 +1,6 @@
 package com.campus.fenixgarden.repositories;
 
 import com.campus.fenixgarden.models.Order;
-import com.campus.fenixgarden.models.dtos.OrderDTO;
-import com.campus.fenixgarden.services.OrderService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

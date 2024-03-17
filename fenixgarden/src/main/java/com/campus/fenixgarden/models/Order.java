@@ -1,11 +1,9 @@
 package com.campus.fenixgarden.models;
 
 import com.campus.fenixgarden.models.dtos.OrderDTO;
-import com.campus.fenixgarden.models.orderdetail.OrderDetail;
 import jakarta.persistence.*;
 
 import java.sql.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "pedido")
