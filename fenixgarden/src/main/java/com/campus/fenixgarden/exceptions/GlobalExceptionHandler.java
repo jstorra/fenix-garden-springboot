@@ -38,6 +38,26 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(UserDuplicateException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Object> handleUserDuplicateException(UserDuplicateException ex) {
+        ErrorResponses errorResponse = new ErrorResponses(
+                "Duplicate entry for username",
+                ex.getMessage(),
+                "Try entering any other username");
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InvalidUserException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Object> handleInvalidUserException(InvalidUserException ex) {
+        ErrorResponses errorResponse = new ErrorResponses(
+                "Credentials wrong",
+                ex.getMessage(),
+                "Make sure you are entering the correct username and password");
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Object> handleGlobalException(Exception ex) {
