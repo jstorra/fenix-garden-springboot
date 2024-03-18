@@ -19,7 +19,7 @@ import java.util.List;
 public class EndpointsFilterController {
     List<String> allowedEndpoints = new ArrayList<>(Arrays.asList(
             "customers", "employees", "gamaproducts", "offices",
-            "orders", "orderdetails", "payments", "products"
+            "orders", "orderdetails", "payments", "products", "validateToken"
     ));
 
     @GetMapping("/{endpoint}")

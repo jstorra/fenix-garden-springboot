@@ -50,7 +50,7 @@ async function sendData(data, api, type) {
             footer: `${res.help}`
         });
     } else if (res.token) {
-        sessionStorage.setItem("token", res.token)
+        sessionStorage.setItem("token", res.token);
 
         let timerInterval;
         Swal.fire({
