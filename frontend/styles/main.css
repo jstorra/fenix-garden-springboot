@@ -649,7 +649,20 @@ main .btn-send:hover {
 	transition: all ease 0.3s;
 }
 
-.content-data .box {
+.content-data.medium .box {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	width: 400px;
+}
+
+.content-data.medium .box div {
+	text-align: center;
+}
+
+
+.content-data.big .box {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

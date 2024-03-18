@@ -7,8 +7,10 @@ export const validateToken = async (api, type) => {
                 'Authorization': 'Bearer ' + sessionStorage.getItem('token')
             }
         });
-        const data = await response.json();
-        displayData(data, type);
+        if (type !== "/validateToken") {
+            const data = await response.json();
+            displayData(api, data, type);
+        }
     } catch (error) {
         let timerInterval;
         Swal.fire({
