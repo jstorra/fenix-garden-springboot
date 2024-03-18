@@ -7,13 +7,17 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="icon" href="resources/phoenix.ico">
 	<link rel="stylesheet" href="styles/style.css">
-	<script src="main.js" async></script>
-	<script src="app.js" defer type="module"></script>
-	<title>AdminSite</title>
+	<script src="../js/main.js" type="module" defer></script>
+	<script src="../app.js" type="module" defer></script>
+
+	<title>Fenix Garden</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Rubik+Mono+One&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Pavanam&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&display=swap"
 		rel="stylesheet">
 </head>
 
@@ -26,7 +30,7 @@
 		<!-- <i class="fa-brands fa-phoenix-framework"></i> -->
 		<a href="#" class="brand"> <i class="icon fa-brands fa-phoenix-framework fenix"></i> Fenix Garden</a>
 		<ul class="side-menu">
-			<li><a href="#" class="active"><i class="icon fa-solid fa-house"></i></i> Dashboard</a></li>
+			<li><a href="main.html" class="active"><i class="icon fa-solid fa-house"></i></i> Dashboard</a></li>
 			<!-- PRODUCTS -->
 			<li class="divider" data-text="Products">Products</li>
 			<!-- <li><a href="#"><i class='bx bxs-chart icon' ></i> All Products</a></li> -->
@@ -34,10 +38,7 @@
 				<a href="#"><i class="icon fa-solid fa-inbox"></i>Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#">Alert</a></li>
-					<li><a href="#">Badges</a></li>
-					<li><a href="#">Breadcrumbs</a></li>
-					<li><a href="#">Button</a></li>
+					<li id="all-products"><a href="#">All products</a></li>
 				</ul>
 			</li>
 			<!-- ORDERS -->
@@ -47,10 +48,7 @@
 				<a href="#"><i class='bx bxs-notepad icon'></i> Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#">Basic</a></li>
-					<li><a href="#">Select</a></li>
-					<li><a href="#">Checkbox</a></li>
-					<li><a href="#">Radio</a></li>
+					<li><a href="#">All orders</a></li>
 				</ul>
 			</li>
 			<!-- CUSOMERS -->
@@ -60,10 +58,8 @@
 				<a href="#"><i class="icon fa-solid fa-users"></i></i> Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#">Basic</a></li>
-					<li><a href="#">Select</a></li>
-					<li><a href="#">Checkbox</a></li>
-					<li><a href="#">Radio</a></li>
+					<li><a href="#">All customers</a></li>
+	
 				</ul>
 			</li>
 			<!-- EMPLOYEES -->
@@ -125,52 +121,31 @@
 	<!-- NAVBAR -->
 	<section id="content">
 		<!-- NAVBAR -->
-		<nav>
-			<i class='bx bx-menu toggle-sidebar'></i>
-			<form action="#">
-
-			</form>
-
-			<span class="divider"></span>
-			<div class="profile">
-				<i class="fa-solid fa-user user"></i>
-				<ul class="profile-link">
-					<li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
-					<li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
-					<li><a href="#"><i class='bx bxs-log-out-circle'></i> Logout</a></li>
-				</ul>
-			</div>
-		</nav>
+		<header class="header">
+			<nav>
+				<i class='bx bx-menu toggle-sidebar'></i>
+				<form action="#">
+	
+				</form>
+	
+				<span class="divider"></span>
+				<div class="profile">
+					<i class="fa-solid fa-user user"></i>
+					<ul class="profile-link">
+						<li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
+						<li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+						<li><a href="#"><i class='bx bxs-log-out-circle'></i> Logout</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
 		<!-- NAVBAR -->
 
 		<!-- MAIN -->
 		<main>
-			<h1 class="title">Dashboard</h1>
-			<ul class="breadcrumbs">
+			<div id="dashboard"> Welcome ! </div>
+			<div class="data" id="content-api">
 				
-			</ul>
-			<div class="info-data">
-
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>235</h2>
-							<p>Visitors</p>
-						</div>
-						<i class='bx bx-trending-up icon'></i>
-					</div>
-					<span class="progress" data-value="80%"></span>
-					<span class="label">80%</span>
-				</div>
-			</div>
-			<div class="data">
-				<div class="content-data">
-					<div class="head">
-						<h3>Sales Report</h3>
-					</div>
-					<!-- conteido -->
-					<h1>Hola Mundo</h1>
-				</div>
 
 			</div>
 		</main>
@@ -178,5 +153,6 @@
 	</section>
 	<!-- NAVBAR -->
 </body>
+<script src="app.js" defer type="module"></script>
 
 </html>
