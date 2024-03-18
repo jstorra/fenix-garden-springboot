@@ -2,7 +2,9 @@ package com.campus.fenixgarden.controllers;
 
 import com.campus.fenixgarden.models.dtos.CustomerDTO;
 import com.campus.fenixgarden.services.CustomerService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("/customers")
 @CrossOrigin("*")
+@PreAuthorize("hasRole('ADMIN')")
+@SecurityRequirement(name = "bearerAuth")
 public class CustomerController {
     @Autowired
     CustomerService customerService;

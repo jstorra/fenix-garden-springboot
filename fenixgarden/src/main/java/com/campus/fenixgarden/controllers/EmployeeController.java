@@ -2,7 +2,9 @@ package com.campus.fenixgarden.controllers;
 
 import com.campus.fenixgarden.models.dtos.EmployeeDTO;
 import com.campus.fenixgarden.services.EmployeeService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("/employees")
 @CrossOrigin("*")
+@PreAuthorize("hasRole('ADMIN')")
+@SecurityRequirement(name = "bearerAuth")
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;

@@ -1,6 +1,8 @@
 package com.campus.fenixgarden.controllers;
 
 import com.campus.fenixgarden.exceptions.EndpointException;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,8 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
+@PreAuthorize("hasRole('ADMIN')")
+@SecurityRequirement(name = "bearerAuth")
 public class EndpointsFilterController {
     List<String> allowedEndpoints = new ArrayList<>(Arrays.asList(
             "customers", "employees", "gamaproducts", "offices",
