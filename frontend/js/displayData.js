@@ -1,4 +1,4 @@
-import { customers } from "./customers.js";
+import { customers } from "./endpoints/customers.js";
 
 export const displayData = (api, data, type) => {
     const container = document.getElementById('content-api');
