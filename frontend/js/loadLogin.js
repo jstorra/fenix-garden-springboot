@@ -69,6 +69,8 @@ async function sendData(data, api, type) {
             willClose: () => {
                 clearInterval(timerInterval);
             }
+        }).then(() => {
+            window.location.href = "../views/main.html"
         })
     } else {
         Swal.fire({

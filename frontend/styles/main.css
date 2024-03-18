@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	color: var(--light);
 }
 
 :root {
@@ -43,6 +43,10 @@ body {
 	overflow-x: auto;
 	position: relative;
 	overflow-x: hidden;
+}
+
+h2 {
+	font-family: "Montserrat", sans-serif;
 }
 
 .overlay {
@@ -448,6 +452,7 @@ nav .profile .profile-link i {
 main {
 	width: 100%;
 	padding: 0px 20px 20px 20px;
+	color: var(--light);
 }
 
 #dashboard {
@@ -711,4 +716,8 @@ main .btn-send:hover {
 	main .data{
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 	}	
+}
+
+div#swal2-html-container.swal2-html-container, h2#swal2-title.swal2-title  {
+	font-family: "Montserrat", sans-serif;
 }

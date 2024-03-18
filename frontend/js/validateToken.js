@@ -14,7 +14,7 @@ export const validateToken = async (api, type) => {
         Swal.fire({
             icon: "error",
             title: "Your token has expired",
-            html: "You will be redirected in <b></b> miliseconds.",
+            html: `You will be redirected in <b></b> miliseconds.`,
             timer: 2500,
             timerProgressBar: true,
             didOpen: () => {
@@ -28,7 +28,7 @@ export const validateToken = async (api, type) => {
                 clearInterval(timerInterval);
             }
         }).then(() => {
-            window.location.href = "index.html"
+            window.location.href = "../views/index.html"
         })
     }
 }

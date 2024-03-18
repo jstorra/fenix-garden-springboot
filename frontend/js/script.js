@@ -18,6 +18,6 @@ function quellueva() {
                        ], 50);
     };
     image.crossOrigin = 'anonymous';
-    image.src = 'resources/succulent.jpg';
+    image.src = '../resources/succulent.jpg';
 
 }

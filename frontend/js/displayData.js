@@ -19,5 +19,6 @@ export const displayData = (data, type) => {
         ).join("");
 
         container.innerHTML = productsHTML;
-    } // siguientes condiciones para los demas endpoints
+    }
+    // siguientes condiciones para los demas endpoints
 }
