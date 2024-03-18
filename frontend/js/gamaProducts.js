@@ -3,7 +3,7 @@ export const displayData = (data, type) => {
 
     if (type === "/products") {
         const productsHTML = data.map(product => 
-            `<div class="content-data big">
+            `<div class="content-data">
                 <div class="box">
                     <span class="title">${product.name}</span>
                     <div>

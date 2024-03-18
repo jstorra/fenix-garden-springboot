@@ -19,7 +19,7 @@ function RainyDay(options, canvas) {
 		parentElement: document.getElementsByTagName('body')[0],
 		fps: 30,
 		fillStyle: '#8ED6FF',
-		enableCollisions: false,
+		enableCollisions: true,
 		gravityThreshold: 3,
 		gravityAngle: Math.PI / 2,
 		gravityAngleVariance: 0,

@@ -196,7 +196,7 @@ li {
 }
 
 #sidebar .side-dropdown.show {
-	max-height: 1000px;
+	max-height: 1800px;
 }
 
 #sidebar .side-dropdown a:hover {
@@ -492,16 +492,10 @@ main .breadcrumbs li.divider {
 	pointer-events: none;
 }
 
-main .info-data {
-	margin-top: 36px;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-	grid-gap: 20px;
-}
 
 main .data {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(490px, 1fr));
 	grid-gap: 10px;
 	margin-top: 20px;
 }
@@ -673,7 +667,8 @@ main .btn-send:hover {
 	margin-bottom: 0.5rem;
 }
 
-.content-data .box div p {
+.content-data .box div p
+ {
 	margin: 0;
 	font-size: 0.9em;
 	font-weight: 200;
@@ -716,8 +711,9 @@ main .btn-send:hover {
 	main .data{
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 	}	
-}
+} 
 
 div#swal2-html-container.swal2-html-container, h2#swal2-title.swal2-title  {
 	font-family: "Montserrat", sans-serif;
 }
+
