@@ -33,13 +33,12 @@
 			<li><a href="main.html" class="active"><i class="icon fa-solid fa-house"></i></i> Home</a></li>
 
 
-			<!-- CUSOMERS -->
+			<!-- CONSUMERS -->
 			<li class="divider" data-text="Customers">Customers</li>
 			<li>
-				<a href="#"><i class="icon fa-solid fa-users"></i></i> Queries <i
+				<a href="#" id="all-customers"><i class="icon fa-solid fa-users"></i></i> Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li id="all-customers"><a href="#">All Customers</a></li>
 
 					<li id="query-1-customers"><a href="#">Query 1</a></li>
 					<li id="query-2-customers"><a href="#">Query 2</a></li>
@@ -67,10 +66,9 @@
 			<!-- OFFICE -->
 			<li class="divider" data-text="Offices">Offices</li>
 			<li>
-				<a href="#"><i class="icon fa-solid fa-building"></i> Queries <i
+				<a href="#" id="all-offices"><i class="icon fa-solid fa-building"></i> Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li id="all-offices"><a href="#">All Offices</a></li>
 
 					<li id="query-1-offices"><a href="#">Query 1</a></li>
 					<li id="query-2-offices"><a href="#">Query 2</a></li>
@@ -82,10 +80,9 @@
 			<!-- EMPLOYEES -->
 			<li class="divider" data-text="Employees">Employees</li>
 			<li>
-				<a href="#"><i class="icon fa-solid fa-user-tie"></i> Queries <i
+				<a href="#" id="all-employees"><i class="icon fa-solid fa-user-tie"></i> Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li id="all-employees"><a href="#">All Employees</a></li>
 
 					<li id="query-1-employees"><a href="#">Query 1</a></li>
 					<li id="query-2-employees"><a href="#">Query 2</a></li>
@@ -104,10 +101,9 @@
 			<!-- PAYMENT -->
 			<li class="divider" data-text="Payment">Payment</li>
 			<li>
-				<a href="#"><i class="icon fa-solid fa-credit-card"></i></i> Queries <i
+				<a href="#" id="all-payments"><i class="icon fa-solid fa-credit-card"></i></i> Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li id="all-payments"><a href="#">All Payment</a></li>
 
 					<li id="query-1-payment"><a href="#">Query 1</a></li>
 					<li id="query-2-payment"><a href="#">Query 2</a></li>
@@ -119,10 +115,9 @@
 			<!-- PRODUCTS -->
 			<li class="divider" data-text="Products">Products</li>
 			<li>
-				<a href="#"><i class="icon fa-solid fa-inbox"></i>Queries <i
+				<a href="#" id="all-products"><i class="icon fa-solid fa-inbox"></i>Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li id="all-products"><a href="#">All products</a></li>
 
 					<li id="query-1-products"><a href="#">Query 1</a></li>
 					<li id="query-2-products"><a href="#">Query 2</a></li>
@@ -135,10 +130,9 @@
 			<!-- ORDERS -->
 			<li class="divider" data-text="Orders">Orders</li>
 			<li>
-				<a href="#"><i class='bx bxs-notepad icon'></i> Queries <i
+				<a href="#" id="all-orders"><i class='bx bxs-notepad icon'></i> Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li id="all-orders"><a href="#">All Orders</a></li>
 
 					<li id="query-1-orders"><a href="#">Query 1</a></li>
 					<li id="query-2-orders"><a href="#">Query 2</a></li>
@@ -154,10 +148,9 @@
 			<!-- ORDER DETAILS -->
 			<li class="divider" data-text="Order Details">Order Details</li>
 			<li>
-				<a href="#"><i class="icon fa-solid fa-list-check"></i> Queries <i
+				<a href="#" id="all-orderdetails"><i class="icon fa-solid fa-list-check"></i> Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li id="query-1-orderdetails"><a href="#">All Order Details</a></li>
 
 					<li id="query-1-orderdetails"><a href="#">Query 1</a></li>
 					<li id="query-2-orderdetails"><a href="#">Query 2</a></li>
@@ -172,11 +165,12 @@
 			<!-- GAMA -->
 			<li class="divider" data-text="Gamas">Gamas</li>
 			<li>
-				<a href="#"><i class="icon fa-solid fa-square-poll-horizontal"></i> Queries <i
+				<a href="#" id="all-gamaproducts"><i class="icon fa-solid fa-square-poll-horizontal"></i> Queries <i
 						class='bx bx-chevron-right icon-right'></i></a>
 				<ul class="side-dropdown">
-					<li id="all-gamaproducts"><a href="#">All Gamas</a></li>
-					<li id="query-4-gamaproducts"><a href="#">Query 1</a></li>
+
+					<li id="query-1-gamaproducts"><a href="#">Query 1</a></li>
+
 				</ul>
 			</li>
 
@@ -208,10 +202,7 @@
 		<!-- MAIN -->
 		<main>
 			<div id="dashboard"> Welcome ! </div>
-			<div class="data" id="content-api">
-
-
-			</div>
+			<div class="data" id="content-api"></div>
 		</main>
 		<!-- MAIN -->
 	</section>
