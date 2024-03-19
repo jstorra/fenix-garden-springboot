@@ -4,7 +4,7 @@ export const validateToken = async (api, type) => {
     try {
         const response = await fetch(api + type, {
             headers: {
-                'Authorization': sessionStorage.getItem('token')
+                'Authorization': sessionStorage.getItem("token")
             }
         });
         if (type !== "/validateToken") {
@@ -13,7 +13,6 @@ export const validateToken = async (api, type) => {
         }
     } catch (error) {
         let timerInterval;
-        console.log(error);
         Swal.fire({
             icon: "error",
             title: "Your token has expired",
