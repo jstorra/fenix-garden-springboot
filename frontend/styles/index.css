@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Merienda:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Merienda:400,700&display=swap");
 
 .cairo-play-cairo {
     font-family: "Cairo Play", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
+    font-variation-settings: "slnt" 0;
     font-variation-settings: "slnt" 0;
 }
 

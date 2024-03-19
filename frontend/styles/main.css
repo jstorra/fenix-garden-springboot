@@ -456,6 +456,14 @@ main {
 	color: var(--light);
 }
 
+main h1 {
+	text-align: center;
+	padding: 50px;
+	font-family: "Montserrat", sans-serif;
+	font-size: 2.5rem;
+	font-weight: 400;
+}
+
 #dashboard {
 	font-family: "Cairo Play", sans-serif;
 	font-size: 5rem;
@@ -662,7 +670,7 @@ main .btn-send:hover {
 /* MEDIUM CARDS */
 .content-data.medium .box {
 	align-items: center;
-	height: 250px;
+	height: 300px;
 }
 
 .content-data.medium .box .info {
@@ -675,7 +683,6 @@ main .btn-send:hover {
 .content-data.medium .box span {
 	display: block;
 }
-
 
 /* BIG CARDS */
 .content-data.big .box {
