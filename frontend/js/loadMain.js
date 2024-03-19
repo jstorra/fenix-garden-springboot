@@ -5,5 +5,13 @@ export const loadMain = async (api) => {
     document.getElementById('all-customers').addEventListener('click', () => {
         validateToken(api, "/customers")
     });
-    // implementacion de los demas botones
+    document.getElementById('all-offices').addEventListener('click', () => {
+        validateToken(api, "/offices")
+    });
+    document.getElementById('all-employees').addEventListener('click', () => {
+        validateToken(api, "/employees")
+    });
+    document.getElementById('all-payments').addEventListener('click', () => {
+        validateToken(api, "/payments")
+    });
 }

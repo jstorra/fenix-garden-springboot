@@ -13,11 +13,10 @@ function quellueva() {
         engine.trail = engine.TRAIL_SMUDGE; //engine.trail = engine.TRAIL_DROPS
 
         engine.rain([
-                           [0, 3, 8],
-                           [3, 8, 1]
-                       ], 50);
+                        [0, 3, 8],
+                        [3, 8, 1]
+                    ], 50);
     };
     image.crossOrigin = 'anonymous';
     image.src = '../resources/fronds.jpg';
-
 }

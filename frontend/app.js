@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
         loadLogin(api);
     }
     if (window.location.href.includes('main.html')) {
+        document.querySelector(".btnLogOut").addEventListener("click", () => {
+            sessionStorage.removeItem("token");
+            window.location.href = "http://127.0.0.1:5500/frontend/views/login.html"
+        })
         loadMain(api);
     }
 })

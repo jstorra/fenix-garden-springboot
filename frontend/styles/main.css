@@ -36,6 +36,7 @@ body {
 }
 
 body {
+	min-width: 375px;
 	min-height: 100vh;
 	background: url("../resources/leaves-2.jpg") no-repeat;
 	background-size: cover;
@@ -492,17 +493,11 @@ main .breadcrumbs li.divider {
 	pointer-events: none;
 }
 
-
 main .data {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(490px, 1fr));
-	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 20px;
 	margin-top: 20px;
-}
-
-main .data>* {
-	padding: 5px;
-	margin-bottom: 0px;
 }
 
 main .chat-box {
@@ -634,12 +629,13 @@ main .btn-send:hover {
 /* CARD */
 .content-data {
 	color: white;
-	position: relative;
 	font-family: sans-serif;
 }
 
 .content-data .box {
-	height: 19em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	padding: 1rem;
 	background-color: rgba(255, 255, 255, 0.055);
 	border: 1px solid rgba(255, 255, 255, 0.222);
@@ -647,25 +643,7 @@ main .btn-send:hover {
 	backdrop-filter: blur(20px);
 	border-radius: 0.7rem;
 	transition: all ease 0.3s;
-}
-
-.content-data.medium .box {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-	width: 400px;
-}
-
-.content-data.medium .box div {
-	text-align: center;
-}
-
-
-.content-data.big .box {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	max-height: 500px;
 }
 
 .content-data .box .title {
@@ -673,11 +651,36 @@ main .btn-send:hover {
 	font-size: 1.6rem;
 	font-weight: 500;
 	letter-spacing: 0.1em;
+	font-weight: bold;
+	text-align: center;
+	color: #81D43A;
+	width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.content-data .box div strong {
+/* MEDIUM CARDS */
+.content-data.medium .box {
+	align-items: center;
+	height: 300px;
+}
+
+.content-data.medium .box .info {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	text-align: center;
+}
+
+.content-data.medium .box span {
 	display: block;
-	margin-bottom: 0.5rem;
+}
+
+/* BIG CARDS */
+.content-data.big .box {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .content-data .box div p
@@ -692,16 +695,6 @@ main .btn-send:hover {
 	-webkit-line-clamp: 5;
 }
 
-.content-data .box div span {
-	font-size: .9rem;
-	font-weight: 300;
-}
-
-.content-data .box div span:nth-child(3) {
-	font-weight: 500;
-	margin-right: 0.2rem;
-}
-
 .content-data .box:hover {
 	box-shadow: 0px 0px 20px 1px #ffbb763f;
 	border: 1px solid rgba(255, 255, 255, 0.454);
@@ -710,7 +703,7 @@ main .btn-send:hover {
 
 
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
 	#content {
 		position: relative;
 		width: calc(100% - 60px);
@@ -724,7 +717,7 @@ main .btn-send:hover {
 	main .data{
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 	}	
-} 
+}  */
 
 div#swal2-html-container.swal2-html-container, h2#swal2-title.swal2-title  {
 	font-family: "Montserrat", sans-serif;

@@ -2,13 +2,12 @@ export const customers = (api, data, type, container) => {
     const customerHTML = data.map(customer =>
         `<div class="content-data medium">
             <div class="box">
-                <span class="title">${customer.customerName}</span>
-                <div>
-                    <strong>${customer.customerCode}</strong>
-                    <strong>${customer.contactName}</strong>
-                    <span>Phone: <span>${customer.phone}</span> <br/>
-                    <span>Address: <span>${customer.addressLine1}</span> <br/>
-                    <span>Location: <span>${customer.city}, ${customer.country}</span>
+                <h2 class="title">${customer.customerName}</h2>
+                <div class="info">
+                    <span><strong>Customer Id:</strong> ${customer.customerCode}</span>
+                    <span><strong>Phone:</strong> ${customer.phone}</span>
+                    <span><strong>Address:</strong> ${customer.addressLine1}</span>
+                    <span><strong>Location:</strong> ${customer.city}, ${customer.country}</span>
                 </div>
             </div>
         </div>`

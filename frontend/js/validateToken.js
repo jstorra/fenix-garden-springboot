@@ -4,7 +4,7 @@ export const validateToken = async (api, type) => {
     try {
         const response = await fetch(api + type, {
             headers: {
-                'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+                'Authorization': sessionStorage.getItem('token')
             }
         });
         if (type !== "/validateToken") {
@@ -30,7 +30,7 @@ export const validateToken = async (api, type) => {
                 clearInterval(timerInterval);
             }
         }).then(() => {
-            window.location.href = "../views/index.html"
+            window.location.href = "http://127.0.0.1:5500/frontend/views/login.html"
         })
     }
 }
