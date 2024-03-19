@@ -3,7 +3,7 @@ function quellueva() {
     image.onload = function () {
         var engine = new RainyDay({
             image: this,
-            blur: 10,
+            blur: 8,
             opacity: 1,
             gravityAngle: Math.PI / 2,
             gravityAngleVariance: 0
@@ -18,6 +18,6 @@ function quellueva() {
                        ], 50);
     };
     image.crossOrigin = 'anonymous';
-    image.src = '../resources/fronds.jpg';
+    image.src = '../resources/plants.jpg';
 
 }

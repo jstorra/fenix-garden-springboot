@@ -13,6 +13,7 @@ export const validateToken = async (api, type) => {
         }
     } catch (error) {
         let timerInterval;
+        console.log(error);
         Swal.fire({
             icon: "error",
             title: "Your token has expired",

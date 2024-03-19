@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Merienda:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Merienda:400,700&display=swap");
 
 .cairo-play-cairo {
     font-family: "Cairo Play", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
-    font-variation-settings:
-        "slnt" 0;
+    font-variation-settings: "slnt" 0;
 }
 
 .rubik-mono one-regular {
@@ -15,32 +14,40 @@
     font-style: normal;
 }
 
-
 * {
     font-family: "Cairo Play", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.title {
+    padding-top: 10em;
+    padding-bottom: 8rem;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    font-size: 4em;
+}
+
 .rainyday {
     width: 100%;
-    height: 100vh; /* Ajusta la altura al 100% de la altura de la ventana */
-    position: relative; /* Establece posición relativa para poder posicionar el botón correctamente */
+    height: 100vh;
+    /* Ajusta la altura al 100% de la altura de la ventana */
+    position: relative;
+    /* Establece posición relativa para poder posicionar el botón correctamente */
     overflow: hidden;
+    padding: 20px;
 }
-
-.rainyday h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    font-size: 100px;
-    color: white;
-    font-family: "Cairo Play", sans-serif;
-    text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.953);
-}
-
 
 canvas {
     position: absolute;
@@ -48,61 +55,280 @@ canvas {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Asegura que el canvas esté detrás del texto y el botón */
+    z-index: 1;
+    /* Asegura que el canvas esté detrás del texto y el botón */
 }
 
-.btn {
+button {
     
-    z-index: 2; /* Asegura que el botón esté por encima del fondo de lluvia */
-    position: absolute; /* Posición absoluta para colocar el botón */
-    top: calc(50% + 100px); /* Coloca el botón 100px por debajo del texto */
-    left: 50%;
-    transform: translateX(-50%);
+    top: 10%;
+    z-index: 9999;
+    position: relative;
+    padding: 13px 35px;
+    background: #f6e2c1;
     font-size: 17px;
-    /* text-transform: uppercase; */
-    text-decoration: none;
-    padding: .1rem .6rem;
-    display: inline-block;
-    border-radius: 6em;
-    transition: all .2s;
+    font-weight: 550;
+    color: #181818;
     border: none;
-    font-family: inherit;
-    font-weight: 600;
-    color: black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px #18181869, inset 2px 2px 10px #ffffffb0;
+    transition: all .3s ease-in-out;
+}
+
+.button{
     cursor: pointer;
-    border: solid 2px rgb(255, 255, 255);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.9);
 }
 
-
-.btn:hover {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.6);
-}
-
-.btn:active {
-    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.6);
-}
-
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
+.icon-1 {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0px;
+    height: auto;
+    transition: all .5s ease-in-out;
     z-index: -1;
-    transition: all .4s;
 }
 
-.btn::after {
-    background-color: #fff;
+.icon-2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0px;
+    height: auto;
+    transition: all .5s ease-in-out;
+    z-index: -2;
 }
 
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
+.icon-3 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0px;
+    height: auto;
+    transition: all .5s ease-in-out;
+    z-index: -2;
+}
+
+.icon-4 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0px;
+    height: auto;
+    transition: all .5s ease-in-out;
+    z-index: -2;
+}
+
+.icon-5 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0px;
+    height: auto;
+    transition: all .5s ease-in-out;
+    z-index: -2;
+}
+
+button:hover {
+    padding: 13px 25px;
+    border-radius: 8px 8px 24px 24px;
+}
+
+button:hover .icon-1 {
+    top: -210%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 50px;
+    height: auto;
+    animation: inIcon1 1s ease .45s forwards;
+}
+
+@keyframes inIcon1 {
+    0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+
+    25% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(5deg);
+    }
+
+    50% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(1deg);
+    }
+
+    65% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(3deg);
+    }
+
+    100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+}
+
+button:hover .icon-2 {
+    padding: 5px;
+    position: absolute;
+    top: -156%;
+    left: 90%;
+    transform: translate(-50%, 0);
+    width: 75px;
+    height: auto;
+    animation: inIcon2 1s ease .45s forwards;
+    
+}
+
+@keyframes inIcon2 {
+    0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+
+    35% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(10deg);
+    }
+
+    50% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(4deg);
+    }
+
+    80% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(5deg);
+    }
+
+    100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+}
+
+button:hover .icon-3 {
+    position: absolute;
+    top: -130%;
+    left: 20%;
+    transform: translate(-50%, 0);
+    width: 60px;
+    height: auto;
+    animation: inIcon3 1s ease .45s forwards;
+}
+
+@keyframes inIcon3 {
+    0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+
+    35% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(-2deg);
+    }
+
+    100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+}
+
+button:hover .icon-4 {
+
+    position: absolute;
+    top: -292%;
+    left: 10%;
+    transform: translate(-50%, 0);
+    width: 85px;
+    height: auto;
+    animation: inIcon4 1s ease .45s forwards;
+}
+
+@keyframes inIcon4 {
+    0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+
+    40% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(-3deg);
+    }
+
+    100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+}
+
+button:hover .icon-5 {
+    position: absolute;
+    top: -300%;
+    left: 90%;
+    transform: translate(-50%, 0);
+    width: 85px;
+    height: auto;
+    animation: inIcon5 1s ease .45s forwards;
+}
+
+@keyframes inIcon5 {
+    0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+
+    35% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(-3deg);
+    }
+
+    100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+}
+
+.fil-leaf-1 {
+    fill: #7ea138
+}
+
+.fil-leaf-2 {
+    fill: #66842a;
+    fill-rule: nonzero
+}
+
+.fil-leaf-3 {
+    fill: #9dcb41
+}
+
+.fil-leaf-4 {
+    fill: #7B9B3A
+}
+
+.fil-leaf-5 {
+    fill: #87bb1e
+}
+
+@media screen and (max-width: 968px) {
+
+    .title{
+        margin-top: 15rem;
+        font-size: 3.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .title{
+        margin-top: 15rem;
+        font-size: 2rem;
+    }
 }
