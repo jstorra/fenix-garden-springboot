@@ -66,6 +66,9 @@ h3 {
 	padding-bottom: 2rem;
 }
 
+
+
+
 .info-page {
 	width: 100%;
 	margin-top: 2rem;
@@ -98,6 +101,7 @@ h3 {
 	align-items: center;
 	z-index: 5;
 }
+
 
 .overlay {
 	position: fixed;
@@ -699,7 +703,7 @@ main .btn-send:hover {
 	padding: 6rem;
 }
 
-.linear{
+.linear {
 	margin: auto auto;
 	width: 20%;
 	height: 1px;
@@ -749,6 +753,7 @@ main .btn-send:hover {
 .card-title span {
 	font-size: 15px;
 	color: var(--font-color-sub);
+	
 }
 
 .card-socials {
@@ -756,7 +761,7 @@ main .btn-send:hover {
 	height: 0;
 	opacity: 0;
 	margin-top: 20px;
-	gap: 20px;
+	gap: 10px;
 	transition: 0.5s;
 }
 
@@ -781,16 +786,21 @@ main .btn-send:hover {
 	height: 35px;
 }
 
+.social:hover {
+	background: linear-gradient(40deg, transparent, rgba(255, 255, 255, .2), transparent);
+	transition: 2s;
+	overflow: hidden;
+}
+
 .card-socials-btn:hover {
-	transform: translateY(-5px);
-	transition: all 0.15s;
+	transform: translateY(-8px);
+	transition: all .5s;
 }
 
 .card-photo:hover {
 	transition: 0.4s;
 	transform: scale(1.0);
 }
-
 
 
 
@@ -817,6 +827,12 @@ main .btn-send:hover {
 	transition: all ease 0.3s;
 	max-height: 500px;
 }
+
+/* .content-data:hover {
+	background: linear-gradient(40deg, transparent, rgba(255, 255, 255, .115), transparent);
+	transition: 2s;
+	overflow: hidden;
+} */
 
 .content-data .box .title {
 	padding-bottom: .4rem;
@@ -936,10 +952,32 @@ main .data-products {
 }
 
 @media screen and (max-width: 768px) {
+
+	h3 {
+		padding-top: 1rem;
+		font-family: "Cairo Play", sans-serif;
+		padding-bottom: 2rem;
+		font-size: 1.4rem;
+	}
+
 	#content {
 		position: relative;
 		width: calc(100% - 60px);
 		transition: all .3s ease;
+	}
+
+
+	nav .profile {
+		position: relative;
+		display: flex;
+	}
+
+	nav .profile .username {
+		display: flex;
+		margin-right: 10px;
+
+		color: var(--light);
+		font-size: 1.2rem;
 	}
 
 	nav .nav-link,
@@ -960,23 +998,6 @@ main .data-products {
 	}
 
 
-	.info-page {
-		width: 100%;
-		margin-top: .9rem;
-		display: block;
-		justify-content: center;
-		padding-bottom: 1.5rem;
-	}
-
-	.div-page {
-		padding-bottom: 3rem;
-		width: 100px;
-	}
-
-	.div-page p {
-		font-size: .5rem;
-	}
-
 	#phoenix-img {
 		width: 250px;
 
@@ -990,24 +1011,77 @@ main .data-products {
 		align-items: center;
 	}
 
-	.social{
+	.social {
 		padding-block: 2rem;
 		margin: 2rem;
 		align-items: center;
 		justify-content: center;
+		margin: 1rem auto;
 	}
-	.div-page p {
-		
-		width: 400px;
-		font-size: 1rem;
-		padding-left: 2rem;
-		
+
+	.info-page {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
 	}
-	.linear{
-		margin: auto auto;
+
+	.div-page {
+		text-align: center;
+		max-width: 80%;
+		/* Limita el ancho del contenedor para que se ajuste en pantallas pequeñas */
+	}
+
+	#phoenix-img {
+		max-width: 100%;
+		/* Ajusta la imagen para que se adapte al ancho del contenedor */
+	}
+
+	p {
+		text-align: center;
+		font-size: 12px;
+		/* Tamaño de fuente base */
+		line-height: 1.1;
+		/* Espaciado entre líneas */
+		max-width: 100%;
+		/* Hace que el párrafo se ajuste al ancho del contenedor padre */
+		padding: 0 28px;
+		/* Agrega relleno horizontal para evitar que el texto llegue hasta el borde */
+	}
+
+	.linear {
+		margin: 1rem auto;
 		width: 50%;
 		height: 1px;
 		background: white;
+	}
+
+	.social-container {
+		display: block;
+		justify-content: center;
+		gap: 2rem;
+		padding: 1rem;
+		align-items: center;
+	}
+
+	.social {
+		--font-color: #fefefe;
+		--font-color-sub: #7e7e7e;
+		--bg-color: #111;
+		--main-color: #fefefe;
+		width: 200px;
+		height: 254px;
+		box-shadow: 2px 2px var(--main-color);
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(255, 255, 255, 0.055);
+		border: 1px solid rgba(255, 255, 255, 0.222);
+		-webkit-backdrop-filter: blur(20px);
+		backdrop-filter: blur(20px);
+		border-radius: 0.7rem;
 	}
 }
 
@@ -1016,25 +1090,29 @@ main .data-products {
 		transform: translateX(0);
 		/* Sin movimiento */
 	}
+
 	25% {
 		transform: translatey(8px);
 		/* Mueve 20px hacia la derecha */
 	}
+
 	50% {
 		transform: translateX(8px);
 		/* Mueve 20px hacia la derecha */
 	}
+
 	75% {
 		transform: translatey(8px);
 		/* Mueve 20px hacia la derecha */
 	}
+
 	100% {
 		transform: translateX(0);
 		/* Regresa a la posición original */
 	}
 }
 
-#phoenix-img{
+#phoenix-img {
 	animation: moverFenix 10s ease-in-out infinite;
 }
 
