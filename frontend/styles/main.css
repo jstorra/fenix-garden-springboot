@@ -404,6 +404,13 @@ nav .profile {
 	position: relative;
 }
 
+nav .profile .username {
+	display: inline-block;
+	margin-right: 5px;
+	color: var(--light);
+	font-size: 2rem;
+}
+
 nav .profile .user {
 	color: var(--light);
 	width: 36px;

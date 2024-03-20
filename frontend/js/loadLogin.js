@@ -51,6 +51,7 @@ async function sendData(data, api, type) {
         });
     } else if (res.token) {
         sessionStorage.setItem("token", res.token);
+        sessionStorage.setItem("username", data.username)
 
         let timerInterval;
         Swal.fire({
