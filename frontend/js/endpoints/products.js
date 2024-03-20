@@ -120,7 +120,7 @@ export const products = (api, data, type, container) => {
         })).json();
 
         const productsHTML = res.map(product =>
-            `<div class="content-data">
+            `<div class="content-data medium">
             <div class="box">
                 <div class="info">
                 <p><strong>MAX Sale Price: </strong>${product.maxSalePrice}</p> 

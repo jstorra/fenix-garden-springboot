@@ -1,7 +1,7 @@
 export const orders = (api, data, type, container) => {
     const main = document.querySelector("main");
     const orderHTML = data.map(order =>
-        `<div class="content-data big-medium" style="heigth: 320px;">
+        `<div class="content-data medium tall" style="heigth: 320px;">
             <div class="box">
                 <h2 class="title"> Order ${order.orderCode}</h2>
                 <div class="info">
@@ -110,7 +110,7 @@ export const orders = (api, data, type, container) => {
         })).json();
 
         const orderHTML = res.map(order =>
-            `<div class="content-data medium">
+            `<div class="content-data medium tall">
                 <div class="box">
                     <h2 class="title"> Order ${order.orderCode}</h2>
                     <div class="info">
@@ -141,7 +141,7 @@ export const orders = (api, data, type, container) => {
         })).json();
 
         const orderHTML = res.map(order =>
-            `<div class="content-data medium">
+            `<div class="content-data medium tall">
                 <div class="box">
                     <h2 class="title"> Order ${order.orderCode}</h2>
                     <div class="info">
