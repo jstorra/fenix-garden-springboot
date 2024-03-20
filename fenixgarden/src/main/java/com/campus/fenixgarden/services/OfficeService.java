@@ -24,23 +24,24 @@ public class OfficeService {
     // 1)
     public List<Map<Object, Object>> listOfficeCodeAndCity() {
         List<Object[]> results = officeRepository.listOfficeCodeAndCity();
-        return TransformResultList.transformResultList(results, "officeCode", "country");
+        return TransformResultList.transformResultList(results, "officeCode", "city");
     }
 
     // 2)
     public List<Map<Object, Object>> listCityAndPhoneOfSpanishOffices() {
         List<Object[]> results = officeRepository.listCityAndPhoneOfSpanishOffices();
-        return TransformResultList.transformResultList(results, "city", "phone");
+        return TransformResultList.transformResultList(results, "officeCode", "city", "phone");
     }
 
     // 3)
-    public List<Map<Object, Object>> listOfficeAddressesWithClientsInFuenlabrada() {
-        List<Object[]> results = officeRepository.listOfficeAddressesWithClientsInFuenlabrada();
-        return TransformResultList.transformResultList(results, "addressLine1");
+    public List<String> listOfficeAddressesWithClientsInFuenlabrada() {
+        return officeRepository.listOfficeAddressesWithClientsInFuenlabrada();
     }
 
     // 4)
-    public List<String> findOfficesWithoutFruitOrders(){
-        return officeRepository.findOfficesWithoutFruitOrders();
+    public List<OfficeDTO> findOfficesWithoutFruitOrders(){
+        return officeRepository.findOfficesWithoutFruitOrders().stream()
+                .map(Office::toDTO)
+                .toList();
     }
 }

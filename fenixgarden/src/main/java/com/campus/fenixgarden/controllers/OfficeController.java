@@ -41,13 +41,13 @@ public class OfficeController {
 
     // 3)
     @GetMapping("/list-addresses")
-    public List<Map<Object, Object>> listOfficeAddressesWithClientsInFuenlabrada(){
+    public List<String> listOfficeAddressesWithClientsInFuenlabrada(){
         return officeService.listOfficeAddressesWithClientsInFuenlabrada();
     }
 
     // 4)
     @GetMapping("/without-employees-representing-clients-with-fruit-orders")
-    public List<String> findOfficesWithoutFruitOrders() {
+    public List<OfficeDTO> findOfficesWithoutFruitOrders() {
         return officeService.findOfficesWithoutFruitOrders();
     }
 }

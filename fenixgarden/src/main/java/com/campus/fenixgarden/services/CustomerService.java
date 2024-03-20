@@ -136,9 +136,12 @@ public class CustomerService {
     }
 
     // 17)
-    public List<Map<Object, Object>> clientsCountInCitiesStartingWithM() {
-        List<Object[]> results = customerRepository.clientsCountInCitiesStartingWithM();
-        return TransformResultList.transformResultList(results, "country", "customers");
+    public List<Map<Object, Object>> clientsCountInCitiesStartingWithM(char letter) {
+        if (Character.isDigit(letter))
+                throw new InvalidCountryFormatException("The parameter must not contain numbers");
+
+        List<Object[]> results = customerRepository.clientsCountInCitiesStartingWithM(letter);
+        return TransformResultList.transformResultList(results, "city", "customers");
     }
 
     // 18)

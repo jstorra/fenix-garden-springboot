@@ -10,11 +10,11 @@ import java.util.List;
 @Repository
 public interface OfficeRepository extends JpaRepository<Office, String> {
     //1
-    @Query("SELECT o.officeCode, o.country FROM Office o")
+    @Query("SELECT o.officeCode, o.city FROM Office o")
     List<Object[]> listOfficeCodeAndCity();
 
     //2
-    @Query("SELECT o.city, o.phone FROM Office o WHERE o.country = 'España'")
+    @Query("SELECT o.officeCode, o.city, o.phone FROM Office o WHERE o.country = 'España'")
     List<Object[]> listCityAndPhoneOfSpanishOffices();
 
     //3
@@ -22,10 +22,10 @@ public interface OfficeRepository extends JpaRepository<Office, String> {
             "FROM Employee e " +
             "JOIN e.customers c " +
             "WHERE c.city = 'Fuenlabrada'")
-    List<Object[]> listOfficeAddressesWithClientsInFuenlabrada();
+    List<String> listOfficeAddressesWithClientsInFuenlabrada();
 
     //4
-    @Query("SELECT DISTINCT o.officeCode " +
+    @Query("SELECT DISTINCT o " +
             "FROM Office o " +
             "JOIN Employee e ON o.officeCode = e.office.officeCode " +
             "JOIN Customer c ON e.employeeCode = c.repSales.employeeCode " +
@@ -34,5 +34,5 @@ public interface OfficeRepository extends JpaRepository<Office, String> {
             "JOIN OrderDetail od ON ord.orderCode = od.order.orderCode " +
             "JOIN Product prod ON od.product.productCode = prod.productCode " +
             "WHERE prod.gamaProduct.gama != 'Frutales'")
-    List<String> findOfficesWithoutFruitOrders();
+    List<Office> findOfficesWithoutFruitOrders();
 }

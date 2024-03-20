@@ -3,6 +3,7 @@ package com.campus.fenixgarden.repositories;
 import com.campus.fenixgarden.models.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -112,9 +113,9 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     // 17)
     @Query("SELECT c.city, COUNT(*) FROM Customer c " +
-            "WHERE c.city LIKE 'M%' " +
+            "WHERE c.city LIKE :letter% " +
             "GROUP BY c.city")
-    List<Object[]> clientsCountInCitiesStartingWithM();
+    List<Object[]> clientsCountInCitiesStartingWithM(@Param("letter") char letter);
 
     // 18)
     @Query("SELECT COUNT(*) FROM Customer c " +
