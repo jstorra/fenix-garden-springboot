@@ -15,11 +15,11 @@ export const displayData = (api, data, type) => {
     const container = document.getElementById('content-api');
 
     if (type === "/customers") {
-        customers(api, data, type, container);
+        customers(api, data, type);
     } else if (type === "/offices") {
-        offices(api, data, type, container);
+        offices(api, data, type);
     } else if (type === "/employees") {
-        employees(api, data, type, container);
+        employees(api, data, type);
     } else if (type === "/payments") {
         payments(api, data, type, container);
     } else if (type === "/gamaproducts") {

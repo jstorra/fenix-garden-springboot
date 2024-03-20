@@ -36,6 +36,19 @@ body {
 	height: 100%;
 }
 
+body::-webkit-scrollbar {
+	width: 7px;
+}
+
+body::-webkit-scrollbar-track {
+	background: #0f172a;
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background:#77ff00
+}
+
 body {
 	min-width: 375px;
 	min-height: 100vh;
@@ -390,6 +403,13 @@ nav .divider {
 
 nav .profile {
 	position: relative;
+}
+
+nav .profile .username {
+	display: inline-block;
+	margin-right: 5px;
+	color: var(--light);
+	font-size: 2rem;
 }
 
 nav .profile .user {

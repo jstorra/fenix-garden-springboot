@@ -27,7 +27,7 @@ public class EmployeeService {
         try {
             int parsedBossCode = Integer.parseInt(bossCode.toString());
             List<Object[]> results = employeeRepository.employeesUnderSupervisorCode(parsedBossCode);
-            return TransformResultList.transformResultList(results, "employeeCode", "employeeName", "email");
+            return TransformResultList.transformResultList(results, "employeeCode", "employeeName", "email", "bossCode");
         } catch(NumberFormatException e) {
             throw new InvalidNumberFormatException("The parameter entered '" + bossCode + "' doesn't have a valid format");
         }

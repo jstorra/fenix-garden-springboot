@@ -115,15 +115,15 @@ public class CustomerController {
     }
 
     // 16)
-    @GetMapping("/clients-count-city/{city}")
+    @GetMapping("/clients-count-city/{city}") // Madrid
     public int clientsCountInCity(@PathVariable String city) {
         return customerService.clientsCountInCity(city);
     }
 
     // 17)
-    @GetMapping("/clients-count-in-cities-starting-with-M")
-    public List<Map<Object, Object>> clientsCountInCitiesStartingWithM() {
-        return customerService.clientsCountInCitiesStartingWithM();
+    @GetMapping("/clients-count-in-cities-starting-with/{letter}") // M
+    public List<Map<Object, Object>> clientsCountInCitiesStartingWithM(@PathVariable char letter) {
+        return customerService.clientsCountInCitiesStartingWithM(letter);
     }
 
     // 18)

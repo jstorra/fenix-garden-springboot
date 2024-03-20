@@ -11,7 +11,7 @@ import java.util.List;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     // 1)
-    @Query("SELECT e.employeeCode, CONCAT(e.name, ' ', e.lastName1, ' ', e.lastName2), e.email " +
+    @Query("SELECT e.employeeCode, CONCAT(e.name, ' ', e.lastName1, ' ', e.lastName2), e.email, e.boss.employeeCode " +
             "FROM Employee e " +
             "WHERE e.boss.employeeCode = ?1")
     List<Object[]> employeesUnderSupervisorCode(int bossCode);
@@ -61,7 +61,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     // 8)
     @Query("SELECT " +
             "e.employeeCode, " +
-            "CONCAT(e.name, ' ', e.lastName1, ' ', e.lastName2), " +
+            "CONCAT(e.name, ' ', e.lastName1), " +
             "e.extension, e.email, e.boss.employeeCode, e.role, " +
             "o.officeCode, o.city, o.country, o.region, o.zipCode, o.phone, o.addressLine1, o.addressLine2 " +
             "FROM Employee e " +
