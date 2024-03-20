@@ -18,4 +18,16 @@ export const loadMain = async (api) => {
     document.getElementById('all-payments').addEventListener('click', () => {
         validateToken(api, "/payments")
     });
+    document.getElementById('all-gamaproducts').addEventListener('click', () => {
+        validateToken(api, "/gamaproducts")
+    });
+    document.getElementById('all-orderdetails').addEventListener('click', () => {
+        validateToken(api, "/orderdetails")
+    });
+    document.getElementById('all-orders').addEventListener('click', () => {
+        validateToken(api, "/orders")
+    });
+    document.getElementById('all-products').addEventListener('click', () => {
+        validateToken(api, "/products")
+    });
 }

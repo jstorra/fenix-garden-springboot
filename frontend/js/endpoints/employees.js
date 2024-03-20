@@ -3,7 +3,7 @@ export const employees = (api, data, type) => {
 
     const employeeHTML = data.map(employee => {
         const name = `${employee.name} ${employee.lastName1}`
-        return `<div class="content-data medium">
+        return `<div class="content-data medium tall">
             <div class="box">
                 <h2 class="title">${name.trim()}</h2>
                 <div class="info">
@@ -187,7 +187,7 @@ export const employees = (api, data, type) => {
         })).json();
 
         const employeeHTML = res.map(employee =>
-            `<div class="content-data medium">
+            `<div class="content-data medium tall">
                 <div class="box">
                     <h2 class="title">${employee.employeeName.trim()}</h2>
                     <div class="info">
@@ -225,7 +225,7 @@ export const employees = (api, data, type) => {
 
         const employeeHTML = res.map(employee => {
             const name = `${employee.name} ${employee.lastName1}`
-            return `<div class="content-data medium">
+            return `<div class="content-data medium tall">
                 <div class="box">
                     <h2 class="title">${name.trim()}</h2>
                     <div class="info">
@@ -265,7 +265,7 @@ export const employees = (api, data, type) => {
 
         const employeeHTML = res.map(employee => {
             const name = `${employee.name} ${employee.lastName1}`
-            return `<div class="content-data medium">
+            return `<div class="content-data medium tall">
                 <div class="box">
                     <h2 class="title">${name.trim()}</h2>
                     <div class="info">
@@ -304,7 +304,7 @@ export const employees = (api, data, type) => {
         })).json();
 
         const employeeHTML = res.map(employee =>
-            `<div class="content-data medium">
+            `<div class="content-data medium tall">
                 <div class="box">
                     <h2 class="title">${employee.employeeName}</h2>
                     <div class="info">
@@ -345,7 +345,7 @@ export const employees = (api, data, type) => {
 
         const employeeHTML = res.map(employee => {
             const name = `${employee.name} ${employee.lastName1}`
-            return `<div class="content-data medium">
+            return `<div class="content-data medium tall">
                 <div class="box">
                     <h2 class="title">${name.trim()}</h2>
                     <div class="info">
@@ -384,7 +384,7 @@ export const employees = (api, data, type) => {
         })).json();
 
         const employeeHTML = res.map(employee =>
-            `<div class="content-data medium">
+            `<div class="content-data medium tall">
                 <div class="box">
                     <h2 class="title">${employee.employeeName}</h2>
                     <div class="info">
