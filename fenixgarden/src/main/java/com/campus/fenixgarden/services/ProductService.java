@@ -50,7 +50,7 @@ public class ProductService {
     // 4)
     public List<Map<Object, Object>> findMaxAndMinProductPrices() {
         List<Object[]> results = productRepository.findMaxAndMinProductPrices();
-        return TransformResultList.transformResultList(results, "salePrice", "salePrice");
+        return TransformResultList.transformResultList(results, "maxSalePrice", "minSalePrice");
     }
 
     // 5)

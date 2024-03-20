@@ -1,30 +1,47 @@
 export const gamas = (api, data, type, container) => {
+    const main = document.querySelector("main");
     const gamasHTML = data.map(gama =>
         `<div class="content-data medium">
             <div class="box">
                 <h2 class="title">${gama.gama}</h2>
                 <div class="info">
                     <span><strong>Text Description: </strong> ${gama.textDescription}</span>
-                    <span><strong>HTML Descrption: </strong> ${gama.htmlDescription}</span>
                 </div>
             </div>
         </div>`
     ).join("");
-    
-    container.innerHTML = gamasHTML;
-}
 
-export const gamasQuery1 = (api, data, type, container) => {
-    const gamaqueryHTML = data.map(gamaquery =>
-        `<div class="content-data medium">
-            <div class="box">
-                <h2 class="title">${gamaquery.gama}</h2>
-                <div class="info">
-                    <span><strong>Customer Name: </strong> ${gamaquery.customerName}</span>
-                </div>
-            </div>
+    main.innerHTML = `
+        <h1>All gamas.</h1>
+		<div class="data" id="content-api">
+            ${gamasHTML}
         </div>`
-    ).join("");
     
-    container.innerHTML = gamaqueryHTML;
+    // Query 1
+    document.getElementById("query-1-gamaproducts").addEventListener("click", async () => {
+        const res = await (await fetch(api + type + "/list-gamas", {
+            headers: {
+                'Authorization': sessionStorage.getItem('token')
+            }
+        })).json();
+
+        const gamasHTML = res.map(gamaquery =>
+            `<div class="content-data medium">
+                <div class="box">
+                    <h2 class="title">${gamaquery.gama}</h2>
+                    <div class="info">
+                        <span><strong>Customer Name: </strong> ${gamaquery.customerName}</span>
+                    </div>
+                </div>
+            </div>`
+        ).join("");
+
+        main.innerHTML = `
+            <h1>Returns a list of the different product ranges that each customer has purchased.</h1>
+            <div class="data" id="content-api">
+                ${gamasHTML}
+            </div>
+        `
+    })
+
 }
