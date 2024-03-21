@@ -18,6 +18,8 @@
     -   [CORS](#cors)
 -   [Frontend](#frontend)
     -   [Designs](#designs)
+    -   [UI Design](#ui-design)
+    -   [Result](#result)
     -   [Functionalities](#functionalities)
 
 # Introduction
@@ -965,9 +967,39 @@ This configuration ensures that the specified origins, methods, and headers are 
 
 The frontend of this project is the user interface that end users directly interact with. It's responsible for presenting and visualizing information in an appealing and accessible manner, facilitating user interaction with the system. Using technologies like HTML, CSS, and JavaScript, the frontend translates the logic and data from the backend into an intuitive and dynamic user experience. In summary, the frontend constitutes the visible face of the system, providing a user-friendly interface for end users.
 
-## Designs
+# Designs
 
 - **Base template:** [admin-site_5.zip](./frontend/resources/doc/admin-site_5.zip)
+
+## UI Design
+
+
+![](./frontend/resources/doc/1.png)
+
+![](./frontend/resources/doc/2.png)
+
+![](./frontend/resources/doc/3.png)
+
+![](./frontend/resources/doc/4.png)
+
+![](./frontend/resources/doc/5.png)
+
+## Result 
+
+
+![](./frontend/resources/doc/14E9C96E.jpg)
+
+
+![](./frontend/resources/doc/14E9C972.jpg)
+
+
+![](./frontend/resources/doc/14E9C975.jpg)
+
+
+![](./frontend/resources/doc/14E9C976.jpg)
+
+
+![](./frontend/resources/doc/14E9C973.jpg)
 
 ## Functionalities
 
