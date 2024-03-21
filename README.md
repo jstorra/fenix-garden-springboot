@@ -86,106 +86,321 @@ Overall, this database (based on MySQL) provides an organized structure to suppo
 <details>
   <summary><code>Customer</code></summary>
 
+-   Get all
+    ```http
+    http://localhost:8080/customers
+    ```
+
 -   Return a list with the names of all Spanish clients.
+    ```http
+    http://localhost:8080/customers/clients-from-country/{country}
+    ``` 
 -   Return a list with the client code of those clients who made some payment in 2008. Keep in mind that you should remove any repeated client codes.
+    ```http
+    http://localhost:8080/customers/clients-with-payments-year/{year}
+    ``` 
 -   Return a list with all clients who are from the city of Madrid and whose sales representative has the employee code 11 or 30.
+    ```http
+    http://localhost:8080/customers/clients-in-madrid-with-specific-representatives
+    ``` 
 -   Obtain a list with the name of each client and the name and surname of their sales representative.
+    ```http
+    http://localhost:8080/customers/clients-sales-representatives
+    ``` 
 -   Show the name of clients who have made payments along with the name of their sales representatives.
+    ```http
+    http://localhost:8080/customers/clients-with-payments-and-representatives
+    ``` 
+
 -   Show the name of clients who have not made payments along with the name of their sales representatives.
+    ```http
+    http://localhost:8080/customers/clients-without-payments-and-representatives
+    ``` 
 -   Return the name of clients who have made payments and the name of their representatives along with the city of the office to which the representative belongs.
+    ```http
+    http://localhost:8080/customers/clients-with-payments-and-representatives-with-office-city
+    ``` 
 -   Return the name of clients who have not made payments and the name of their representatives along with the city of the office to which the representative belongs.
+    ```http
+    http://localhost:8080/customers/clients-without-payments-and-representatives-with-office-city
+    ``` 
 -   Return a list showing only the clients who have not made any payments.
+    ```http
+    http://localhost:8080/customers/clients-without-payments
+    ``` 
 -   Return a list showing only the clients who have not placed any orders.
+    ```http
+    http://localhost:8080/customers/clients-without-orders
+    ``` 
 -   Return a list showing the clients who have not made any payments and those who have not placed any orders.
+    ```http
+    http://localhost:8080/customers/clients-without-payments-and-orders
+    ``` 
 -   Return the name of clients who have not been delivered an order on time.
+    ```http
+    http://localhost:8080/customers/clients-with-late-deliveries
+    ``` 
 -   Return a list of clients who have placed orders but have not made any payments.
+    ```http
+    http://localhost:8080/customers/clients-with-orders-but-no-payments
+    ``` 
 -   How many clients does each country have?
+    ```http
+    http://localhost:8080/customers/clients-count-by-country
+    ``` 
 -   Calculate the number of clients the company has.
+    ```http
+    http://localhost:8080/customers/total-clients
+    ``` 
 -   How many clients are located in the city of Madrid?
+    ```http
+    http://localhost:8080/customers/clients-count-city/{city}
+    ``` 
 -   Calculate how many clients each of the cities starting with 'M' has.
+    ```http
+    http://localhost:8080customers//clients-count-in-cities-starting-with/{letter}
+    ``` 
 -   Calculate the number of clients who do not have an assigned sales representative.
+    ```http
+    http://localhost:8080/customers/clients-without-sales-representative
+    ``` 
 -   Return the name of sales representatives and the number of clients each one serves.
+    ```http
+    http://localhost:8080/customers/sales-representatives-and-client-count
+    ``` 
 -   Calculate the date of the first and last payment made by each client. The list should display the name and surnames of each client.
+    ```http
+    http://localhost:8080/customers/first-last-payment-date-by-client
+    ``` 
 
 </details>
 
 <details>
   <summary><code>Office</code></summary>
 
+-   Get all
+    ```http
+    http://localhost:8080/offices
+    ```
+
 -   Return a list with the office code and the city where there are offices.
+    ```http
+    http://localhost:8080/offices/list-office-and-country"
+    ``` 
 -   Return a list with the city and phone number of the offices in Spain.
+    ```http
+    http://localhost:8080/offices/city-and-phone
+    ``` 
 -   List the address of offices that have clients in Fuenlabrada.
+    ```http
+    http://localhost:8080/offices/list-addresses
+    ``` 
 -   Return the offices where none of the employees who have been sales representatives for a client who has purchased a product from the Fruits range work.
+    ```http
+    http://localhost:8080/offices/without-employees-representing-clients-with-fruit-orders
+    ``` 
 
 </details>
 
 <details>
   <summary><code>Employee</code></summary>
 
+-   Get all
+    ```http
+    http://localhost:8080/employees
+    ```
+  
 -   Return a list with the name, surname, and email of employees whose boss has a boss code equal to 7.
+    ```http
+    http://localhost:8080/employees/employees-under-supervisor-code/{bossCode}
+    ```
 -   Return the position name, name, surname, and email of the company's boss.
+    ```http
+    http://localhost:8080/employees/boss-details
+    ```
 -   Return a list with the name, surname, and position of those employees who are not sales representatives.
+    ```http
+    http://localhost:8080/employees/non-sales-representatives-details
+    ```
 -   Return a list with the name of the employees along with the name of their bosses.
+    ```http
+    http://localhost:8080/employees/employees-with-supervisors
+    ```
 -   Return a list showing the name of each employee, the name of their boss, and the name of their boss's boss.
+    ```http
+    http://localhost:8080/employees/employees-with-supervisors-and-grand-supervisors
+    ```
 -   Return a list showing only the employees who do not have an associated office.
+    ```http
+    http://localhost:8080/employees/employees-without-office
+    ```
 -   Return a list showing only the employees who do not have an associated client.
+    ```http
+    http://localhost:8080/employees/employees-without-clients
+    ```
 -   Return a list showing only the employees who do not have an associated client along with the data of the office where they work.
+    ```http
+    http://localhost:8080/employees/employees-without-clients-and-office-details
+    ```
 -   Return a list showing the employees who do not have an associated office and those who do not have an associated client.
+    ```http
+    http://localhost:8080/employees/employees-without-office-and-clients
+    ```
 -   Return a list with the data of employees who do not have associated clients and the name of their associated boss.
+    ```http
+    http://localhost:8080/employees/employees-without-clients-and-supervisor
+    ```
 -   How many employees are there in the company?
+    ```http
+    http://localhost:8080/employees/total-employees
+    ```
 
 </details>
 
 <details>
   <summary><code>Payment</code></summary>
 
+-   Get all
+    ```http
+    http://localhost:8080/payments
+    ```
+
 -   Return a list with all payments made in the year 2008 through Paypal. Sort the result from highest to lowest.
+    ```http
+    http://localhost:8080/payments/payment-by-paypal
+    ```
 -   Return a list with all payment methods that appear in the payment table. Keep in mind that payment methods should not appear repeated.
+    ```http
+    http://localhost:8080/payments/way-to-pay
+    ```
 -   What was the average payment in 2009?
+    ```http
+    http://localhost:8080/payments/average-payment
+    ```
 -   Show the total sum of all payments made for each of the years appearing in the payments table.
+    ```http
+    http://localhost:8080/payments/total-payment-by-year
+    ```
 
 </details>
 
 <details>
   <summary><code>Order</code></summary>
 
--   Return a list with the different statuses an order can go through.
+-   Get all
+    ```http
+    http://localhost:8080/orders
+    ```
+
+-   Return a list with the different statuses an order can go through.-   Get all
+    ```http
+    http://localhost:8080/orders/find-status
+    ```
 -   Return a list with the order code, client code, expected date, and delivery date of orders that have not been delivered on time.
+    ```http
+    http://localhost:8080/orders/order-delivered-late
+    ```
 -   Return a list with the order code, client code, expected date, and delivery date of orders whose delivery date has been at least two days before the expected date.
+    ```http
+    http://localhost:8080/orders/order-delivered-late-at-least
+    ```
 -   Return a list of all orders that were rejected in 2009.
+    ```http
+    http://localhost:8080/orders/rejected-in-year/{year}
+    ```
 -   Return a list of all orders that have been delivered in the month of January of any year.
+    ```http
+    http://localhost:8080/orders/delivered-january
+    ```
 -   Return the name of the clients to whom an order has not been delivered on time.
+    ```http
+    http://localhost:8080/orders/delayed-deliveries
+    ```
 -   How many orders are there in each state? Sort the result in descending order by the number of orders.
+    ```http
+    http://localhost:8080/orders/count-by-state
+    ```
 
 </details>
 
 <details>
   <summary><code>Product</code></summary>
 
+-   Get all
+    ```http
+    http://localhost:8080/products
+    ```
+
 -   Return a list with all products belonging to the Ornamental range and having more than 100 units in stock. The list should be ordered by their selling price, showing the highest-priced products first.
+    ```http
+    http://localhost:8080/products/gama-name/{gama}
+    ```
 -   Return a list of products that have never appeared in an order.
+    ```http
+    http://localhost:8080/products/not-in-order
+    ```
 -   Return a list of products that have never appeared in an order. The result should display the name, description, and image of the product.
+    ```http
+    http://localhost:8080/products/not-in-order-with-name
+    ```
 -   Calculate the selling price of the most expensive and cheapest product in a single query.
+    ```http
+    http://localhost:8080/products/prices-range
+    ```
 -   Return a list of the top 20 best-selling products and the total number of units sold for each one. The list should be ordered by the total number of units sold.
+    ```http
+    http://localhost:8080/products/top-20-best-selling
+    ```
 
 </details>
 
 <details>
   <summary><code>OrderDetail</code></summary>
 
+-   Get all
+    ```http
+    http://localhost:8080/orderdetails
+    ```
+
 -   The total revenue the company has had in its entire history, indicating the taxable base, the VAT, and the total invoiced. The taxable base is calculated by adding the product cost multiplied by the number of units sold from the order detail table. The VAT is 21% of the taxable base, and the total is the sum of the previous two fields.
+    ```http
+    http://localhost:8080/orderdetails/total-revenue
+    ```
 -   The same information as in the previous question, but grouped by product code.
+    ```http
+    http://localhost:8080/orderdetails/total-revenue-by-product
+    ```
 -   The same information as in the previous question, but grouped by product code filtered by codes starting with 'OR'.
+    ```http
+    http://localhost:8080/orderdetails/total-revenue-by-product-by-or
+    ```
 -   List the total sales of products that have invoiced more than 3000 euros. It will show the name, units sold, total invoiced, and total invoiced with taxes (21% VAT).
+    ```http
+    http://localhost:8080/orderdetails/list-total-sales-product-over
+    ```
 -   Calculate the number of different products in each of the orders.
+    ```http
+    http://localhost:8080/orderdetails/number-of-product-per-order
+    ```
 -   Calculate the sum of the total quantity of all products appearing in each of the orders.
+    ```http
+    http://localhost:8080/orderdetails/total-amount-per-order
+    ```
 
 </details>
 
 <details>
   <summary><code>GamaProduct</code></summary>
 
+-   Get all
+    ```http
+    http://localhost:8080/gamaproducts
+    ```
+
 -   Return a list of the different product gamas that each client has purchased.
+    ```http
+    http://localhost:8080/gamaproducts/list-gamas
+    ```
 
 </details>
 
