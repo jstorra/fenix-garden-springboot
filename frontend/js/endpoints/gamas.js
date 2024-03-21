@@ -1,4 +1,4 @@
-export const gamas = (api, data, type, container) => {
+export const gamas = (api, data, type) => {
     const main = document.querySelector("main");
     const gamasHTML = data.map(gama =>
         `<div class="content-data medium">

@@ -31,5 +31,4 @@ export const displayData = (api, data, type) => {
     }else if (type === "/products") {
         products(api, data, type, container);
     }
-    // siguientes condiciones para los demas endpoints
 }

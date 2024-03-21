@@ -1,4 +1,4 @@
-export const orders = (api, data, type, container) => {
+export const orders = (api, data, type) => {
     const main = document.querySelector("main");
     const orderHTML = data.map(order =>
         `<div class="content-data medium tall" style="heigth: 320px;">
