@@ -38,30 +38,42 @@ export const customers = (api, data, type) => {
             }
         })).json();
 
-        const customerHTML = res.map(customer =>
-            `<div class="content-data medium">
-                <div class="box">
-                    <h2 class="title">${customer.customerName}</h2>
-                    <div class="info">
-                        <span><strong>Customer Id:</strong> ${customer.customerCode}</span>
-                    </div>
-                </div>
-            </div>`
-        ).join("");
-
-        if (customerHTML.length === 0) {
-            main.innerHTML = `
-                <h1>Returns a list with the name of all Spanish clients.</h1>
-                <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
-                <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
-            `
+        if (res.error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `${res.message}`,
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                footer: `${res.help}`
+            });
         } else {
-            main.innerHTML = `
-                <h1>Returns a list with the name of all Spanish clients.</h1>
-                <div class="data" id="content-api">
-                    ${customerHTML}
-                </div>
-            `
+            const customerHTML = res.map(customer =>
+                `<div class="content-data medium">
+                    <div class="box">
+                        <h2 class="title">${customer.customerName}</h2>
+                        <div class="info">
+                            <span><strong>Customer Id:</strong> ${customer.customerCode}</span>
+                        </div>
+                    </div>
+                </div>`
+            ).join("");
+    
+            if (customerHTML.length === 0) {
+                main.innerHTML = `
+                    <h1>Returns a list with the name of all Spanish clients.</h1>
+                    <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
+                    <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
+                `
+            } else {
+                main.innerHTML = `
+                    <h1>Returns a list with the name of all Spanish clients.</h1>
+                    <div class="data" id="content-api">
+                        ${customerHTML}
+                    </div>
+                `
+            }
         }
     })
 
@@ -73,27 +85,39 @@ export const customers = (api, data, type) => {
             }
         })).json();
 
-        const customerHTML = res.map(customerCode =>
-            `<div class="content-data medium">
-                <div class="box">
-                    <h2 class="title" style="font-size: 4rem">${customerCode}</h2>
-                </div>
-            </div>`
-        ).join("");
-
-        if (customerHTML.length === 0) {
-            main.innerHTML = `
-                <h1>Returns a list with the customer code of those customers who made a payment in 2008. Keep in mind that you must eliminate those customer codes that appear repeated.</h1>
-                <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
-                <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
-            `
+        if (res.error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `${res.message}`,
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                footer: `${res.help}`
+            });
         } else {
-            main.innerHTML = `
-                <h1>Returns a list with the customer code of those customers who made a payment in 2008. Keep in mind that you must eliminate those customer codes that appear repeated.</h1>
-                <div class="data" id="content-api">
-                    ${customerHTML}
-                </div>
-            `
+            const customerHTML = res.map(customerCode =>
+                `<div class="content-data medium">
+                    <div class="box">
+                        <h2 class="title" style="font-size: 4rem">${customerCode}</h2>
+                    </div>
+                </div>`
+            ).join("");
+    
+            if (customerHTML.length === 0) {
+                main.innerHTML = `
+                    <h1>Returns a list with the customer code of those customers who made a payment in 2008. Keep in mind that you must eliminate those customer codes that appear repeated.</h1>
+                    <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
+                    <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
+                `
+            } else {
+                main.innerHTML = `
+                    <h1>Returns a list with the customer code of those customers who made a payment in 2008. Keep in mind that you must eliminate those customer codes that appear repeated.</h1>
+                    <div class="data" id="content-api">
+                        ${customerHTML}
+                    </div>
+                `
+            }
         }
     })
 
@@ -572,23 +596,35 @@ export const customers = (api, data, type) => {
             }
         })).json();
 
-        if (res.length === 0) {
-            main.innerHTML = `
-                <h1>How many clients are there with addresses in the city of Madrid?</h1>
-                <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
-                <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
-            `
+        if (res.error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `${res.message}`,
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                footer: `${res.help}`
+            });
         } else {
-            main.innerHTML = `
-                <h1>How many clients are there with addresses in the city of Madrid?</h1>
-                <div class="data" id="content-api">
-                    <div class="content-data medium">
-                        <div class="box">
-                            <h2 class="title" style="font-size: 4rem">${res}</h2>
+            if (res.length === 0) {
+                main.innerHTML = `
+                    <h1>How many clients are there with addresses in the city of Madrid?</h1>
+                    <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
+                    <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
+                `
+            } else {
+                main.innerHTML = `
+                    <h1>How many clients are there with addresses in the city of Madrid?</h1>
+                    <div class="data" id="content-api">
+                        <div class="content-data medium">
+                            <div class="box">
+                                <h2 class="title" style="font-size: 4rem">${res}</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `
+                `
+            }
         }
     })
 
@@ -600,30 +636,42 @@ export const customers = (api, data, type) => {
             }
         })).json();
 
-        const customerHTML = res.map(customer =>
-            `<div class="content-data medium">
-                <div class="box">
-                    <h2 class="title">${customer.city}</h2>
-                    <div class="info">
-                        <span><strong>Customers:</strong> ${customer.customers}</span>
-                    </div>
-                </div>
-            </div>`
-        ).join("");
-
-        if (customerHTML.length === 0) {
-            main.innerHTML = `
-                <h1>Calculate how many customers each of the cities that begin with 'M' has?</h1>
-                <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
-                <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
-            `
+        if (res.error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `${res.message}`,
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                footer: `${res.help}`
+            });
         } else {
-            main.innerHTML = `
-                <h1>Calculate how many customers each of the cities that begin with 'M' has?</h1>
-                <div class="data" id="content-api">
-                    ${customerHTML}
-                </div>
-            `
+            const customerHTML = res.map(customer =>
+                `<div class="content-data medium">
+                    <div class="box">
+                        <h2 class="title">${customer.city}</h2>
+                        <div class="info">
+                            <span><strong>Customers:</strong> ${customer.customers}</span>
+                        </div>
+                    </div>
+                </div>`
+            ).join("");
+    
+            if (customerHTML.length === 0) {
+                main.innerHTML = `
+                    <h1>Calculate how many customers each of the cities that begin with 'M' has?</h1>
+                    <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
+                    <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
+                `
+            } else {
+                main.innerHTML = `
+                    <h1>Calculate how many customers each of the cities that begin with 'M' has?</h1>
+                    <div class="data" id="content-api">
+                        ${customerHTML}
+                    </div>
+                `
+            }
         }
     })
 

@@ -43,5 +43,4 @@ export const gamas = (api, data, type) => {
             </div>
         `
     })
-
 }

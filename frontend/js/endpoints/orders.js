@@ -45,6 +45,7 @@ export const orders = (api, data, type) => {
             </div>
         `
     })
+
     // Query 2
     document.getElementById("query-2-orders").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/order-delivered-late", {
@@ -73,6 +74,7 @@ export const orders = (api, data, type) => {
             </div>
         `
     })
+
     // Query 3
     document.getElementById("query-3-orders").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/order-delivered-late-at-least", {
@@ -101,6 +103,7 @@ export const orders = (api, data, type) => {
             </div>
         `
     })
+
     // Query 4
     document.getElementById("query-4-orders").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/rejected-in-year/2009", {
@@ -109,29 +112,42 @@ export const orders = (api, data, type) => {
             }
         })).json();
 
-        const orderHTML = res.map(order =>
-            `<div class="content-data medium tall">
-                <div class="box">
-                    <h2 class="title"> Order ${order.orderCode}</h2>
-                    <div class="info">
-                        <span><strong>Order Date: </strong>${order.orderDate}</span>
-                        <span><strong>Expected Date: </strong> ${order.expectedDate}</span>
-                        <span><strong>Deliver Date: </strong> ${order.deliverDate}</span>
-                        <span><strong>Status: </strong> ${order.status}</span>
-                        <span><strong>Comments: </strong> ${order.comments}</span>
-                        <span><strong>Customer: </strong> ${order.customerId}</span>
+        if (res.error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `${res.message}`,
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                footer: `${res.help}`
+            });
+        } else {
+            const orderHTML = res.map(order =>
+                `<div class="content-data medium tall">
+                    <div class="box">
+                        <h2 class="title"> Order ${order.orderCode}</h2>
+                        <div class="info">
+                            <span><strong>Order Date: </strong>${order.orderDate}</span>
+                            <span><strong>Expected Date: </strong> ${order.expectedDate}</span>
+                            <span><strong>Deliver Date: </strong> ${order.deliverDate}</span>
+                            <span><strong>Status: </strong> ${order.status}</span>
+                            <span><strong>Comments: </strong> ${order.comments}</span>
+                            <span><strong>Customer: </strong> ${order.customerId}</span>
+                        </div>
                     </div>
+                </div>`
+            ).join("");
+    
+            main.innerHTML = `
+                <h1>Returns a list of all orders that were rejected in 2009.</h1>
+                <div class="data" id="content-api">
+                    ${orderHTML}
                 </div>
-            </div>`
-        ).join("");
-
-        main.innerHTML = `
-            <h1>Returns a list of all orders that were rejected in 2009.</h1>
-            <div class="data" id="content-api">
-                ${orderHTML}
-            </div>
-        `
+            `
+        }
     })
+
     // Query 5
     document.getElementById("query-5-orders").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/delivered-january", {
@@ -163,6 +179,7 @@ export const orders = (api, data, type) => {
             </div>
         `
     })
+
     // Query 6
     document.getElementById("query-6-orders").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/delayed-deliveries", {
@@ -186,6 +203,7 @@ export const orders = (api, data, type) => {
             </div>
         `
     })
+
     // Query 7
     document.getElementById("query-7-orders").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/count-by-state", {
@@ -212,5 +230,4 @@ export const orders = (api, data, type) => {
             </div>
         `
     })
-
 }
