@@ -193,6 +193,11 @@ The backend of this project developed in Spring Boot acts as the central engine 
 
 ## Class Diagram
 
+> [!NOTE]
+> To download or open the class diagram you must have [StarUML](https://staruml.io/) or another UML in order to open it, if you already have one just open the file ubicated in backend resources [here](./fenixgarden/src/main/resources/fenixgarden.mdj).
+
+![](./frontend/resources/doc/classDiagram.jpg)
+
 ## Models
 
 <details>
@@ -958,7 +963,11 @@ This configuration ensures that the specified origins, methods, and headers are 
 
 # Frontend
 
+The frontend of this project is the user interface that end users directly interact with. It's responsible for presenting and visualizing information in an appealing and accessible manner, facilitating user interaction with the system. Using technologies like HTML, CSS, and JavaScript, the frontend translates the logic and data from the backend into an intuitive and dynamic user experience. In summary, the frontend constitutes the visible face of the system, providing a user-friendly interface for end users.
+
 ## Designs
+
+- **Base template:** [admin-site_5.zip](./frontend/resources/doc/admin-site_5.zip)
 
 ## Functionalities
 
