@@ -1,4 +1,4 @@
-export const ordersDetails = (api, data, type, container) => {
+export const ordersDetails = (api, data, type) => {
     const main = document.querySelector("main");
     const ordersDetailsHTML = data.map(orderDetail =>
         `<div class="content-data medium">
@@ -20,6 +20,7 @@ export const ordersDetails = (api, data, type, container) => {
 		<div class="data" id="content-api">
             ${ordersDetailsHTML}
         </div>` 
+
     // Query 1
     document.getElementById("query-1-orderdetails").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/total-revenue", {
@@ -48,6 +49,7 @@ export const ordersDetails = (api, data, type, container) => {
             </div>
         `
     })
+
     // Query 2
     document.getElementById("query-2-orderdetails").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/total-revenue-by-product", {
@@ -75,6 +77,7 @@ export const ordersDetails = (api, data, type, container) => {
             </div>
         `
     })
+
     // Query 3
     document.getElementById("query-3-orderdetails").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/total-revenue-by-product-by-or", {
@@ -102,6 +105,7 @@ export const ordersDetails = (api, data, type, container) => {
             </div>
         `
     })
+
     // Query 4
     document.getElementById("query-4-orderdetails").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/list-total-sales-product-over", {
@@ -129,6 +133,7 @@ export const ordersDetails = (api, data, type, container) => {
             </div>
         `
     })
+
     // Query 5
     document.getElementById("query-5-orderdetails").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/number-of-product-per-order", {
@@ -157,6 +162,7 @@ export const ordersDetails = (api, data, type, container) => {
             </div>
         `
     })
+
     // Query 6
     document.getElementById("query-6-orderdetails").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/total-amount-per-order", {
@@ -184,5 +190,4 @@ export const ordersDetails = (api, data, type, container) => {
             </div>
         `
     })
-
 }

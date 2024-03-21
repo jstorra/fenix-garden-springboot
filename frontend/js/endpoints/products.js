@@ -1,4 +1,4 @@
-export const products = (api, data, type, container) => {
+export const products = (api, data, type) => {
     const main = document.querySelector("main");
     const productsHTML = data.map(product =>
         `<div class="content-data big">
@@ -21,6 +21,7 @@ export const products = (api, data, type, container) => {
 		<div class="data-products" >
                 ${productsHTML}
         </div>` 
+    
     // Query 1
     document.getElementById("query-1-products").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/gama-name/Ornamentales", {
@@ -29,29 +30,42 @@ export const products = (api, data, type, container) => {
             }
         })).json();
 
-        const productsHTML = res.map(product =>
-            `<div class="content-data big">
-            <div class="box">
-            <h2 class="title">${product.name}</h2>
-                <div class="p info">
-                <p><strong>Code:</strong>${product.productCode}</p> 
-                <p><strong>Gama:</strong>${product.gamaProduct}</p>  </br>
-                <p><strong>Description:</strong>${product.description}</p> </br>
-                <p><strong>Amount: $ </strong>${product.amountInStock} </p> 
-                <p><strong>Sale Price: $ </strong>${product.salePrice} </p> 
-                <p><strong>Supplier: $ </strong>${product.supplierPrice}</p> 
+        if (res.error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `${res.message}`,
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                footer: `${res.help}`
+            });
+        } else {
+            const productsHTML = res.map(product =>
+                `<div class="content-data big">
+                <div class="box">
+                <h2 class="title">${product.name}</h2>
+                    <div class="p info">
+                    <p><strong>Code:</strong>${product.productCode}</p> 
+                    <p><strong>Gama:</strong>${product.gamaProduct}</p>  </br>
+                    <p><strong>Description:</strong>${product.description}</p> </br>
+                    <p><strong>Amount: $ </strong>${product.amountInStock} </p> 
+                    <p><strong>Sale Price: $ </strong>${product.salePrice} </p> 
+                    <p><strong>Supplier: $ </strong>${product.supplierPrice}</p> 
+                    </div>
                 </div>
-            </div>
-        </div>`
-        ).join("");
-
-        main.innerHTML = `
-            <h1>Returns a list with all the products that belong to the Ornamental range and that have more than 100 units in stock. The list must be ordered by their sales price, showing the highest prices first.</h1>
-            <div class="data-products" >
-                ${productsHTML}
-            </div>
-        `
+            </div>`
+            ).join("");
+    
+            main.innerHTML = `
+                <h1>Returns a list with all the products that belong to the Ornamental range and that have more than 100 units in stock. The list must be ordered by their sales price, showing the highest prices first.</h1>
+                <div class="data-products" >
+                    ${productsHTML}
+                </div>
+            `
+        }
     })
+
     // Query 2
     document.getElementById("query-2-products").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/not-in-order", {
@@ -84,6 +98,7 @@ export const products = (api, data, type, container) => {
             </div>
         `
     })
+
     // Query 3
     document.getElementById("query-3-products").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/not-in-order-with-name", {
@@ -111,6 +126,7 @@ export const products = (api, data, type, container) => {
             </div>
         `
     })
+
     // Query 4
     document.getElementById("query-4-products").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/prices-range", {
@@ -137,6 +153,7 @@ export const products = (api, data, type, container) => {
             </div>
         `
     })
+
     // Query 5
     document.getElementById("query-5-products").addEventListener("click", async () => {
         const res = await (await fetch(api + type + "/top-20-best-selling", {
@@ -164,5 +181,4 @@ export const products = (api, data, type, container) => {
             </div>
         `
     })
-
 }

@@ -40,32 +40,44 @@ export const employees = (api, data, type) => {
             }
         })).json();
 
-        const employeeHTML = res.map(employee =>
-            `<div class="content-data medium">
-                <div class="box">
-                    <h2 class="title">${employee.employeeName.trim()}</h2>
-                    <div class="info">
-                        <span><strong>Employee Id:</strong> ${employee.employeeCode}</span>
-                        <span><strong>Email:</strong> ${employee.email}</span>
-                        <span><strong>Boss Id:</strong> ${employee.bossCode}</span>
-                    </div>
-                </div>
-            </div>`
-        ).join("");
-
-        if (employeeHTML.length === 0) {
-            main.innerHTML = `
-                <h1>Returns a list with the first name, last name and email of the employees whose boss has a boss code equal to 7.</h1>
-                <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
-                <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
-            `
+        if (res.error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `${res.message}`,
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                footer: `${res.help}`
+            });
         } else {
-            main.innerHTML = `
-                <h1>Returns a list with the first name, last name and email of the employees whose boss has a boss code equal to 7.</h1>
-                <div class="data" id="content-api">
-                    ${employeeHTML}
-                </div>
-            `
+            const employeeHTML = res.map(employee =>
+                `<div class="content-data medium">
+                    <div class="box">
+                        <h2 class="title">${employee.employeeName.trim()}</h2>
+                        <div class="info">
+                            <span><strong>Employee Id:</strong> ${employee.employeeCode}</span>
+                            <span><strong>Email:</strong> ${employee.email}</span>
+                            <span><strong>Boss Id:</strong> ${employee.bossCode}</span>
+                        </div>
+                    </div>
+                </div>`
+            ).join("");
+    
+            if (employeeHTML.length === 0) {
+                main.innerHTML = `
+                    <h1>Returns a list with the first name, last name and email of the employees whose boss has a boss code equal to 7.</h1>
+                    <h2 style="color: #81D43A; text-align: center; font-size: 4rem; margin-bottom: 50px">There is no data to show</h2>
+                    <img src="http://127.0.0.1:5500/frontend/resources/nodata.jpg" alt="NO DATA TO SHOW" style="min-width: 250px; width: 50%; height: 50%; display: block; margin: 0 auto;"/>
+                `
+            } else {
+                main.innerHTML = `
+                    <h1>Returns a list with the first name, last name and email of the employees whose boss has a boss code equal to 7.</h1>
+                    <div class="data" id="content-api">
+                        ${employeeHTML}
+                    </div>
+                `
+            }
         }
     })
 
